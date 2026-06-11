@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://cftaupkiw2o3p"]
-
-[ext_resource type="PackedScene" uid="uid://ewtmeavs70jv" path="res://assets/board-frame.blend" id="1_wtcfe"]
-
-[node name="Main" type="Node3D" unique_id=715521598]
-
-[node name="board-frame" parent="." unique_id=56783161 instance=ExtResource("1_wtcfe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04964912, 0, -0.27023315)
