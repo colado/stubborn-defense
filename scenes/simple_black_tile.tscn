@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://deeypl1n782o1"]
+
+[ext_resource type="PackedScene" uid="uid://l6d1f1cv8axc" path="res://assets/simple-black-tile.glb" id="1_q5iw8"]
+
+[node name="simple-black-tile" unique_id=803205496 instance=ExtResource("1_q5iw8")]

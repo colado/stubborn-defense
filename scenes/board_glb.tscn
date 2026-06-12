@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://baam03ijnn3d5"]
 
 [ext_resource type="PackedScene" uid="uid://bnlj0he5rie6l" path="res://assets/board-frame.glb" id="1_wiq8u"]
-[ext_resource type="Script" uid="uid://bpvuxp8fqkbmh" path="res://scripts/board_glb.gd" id="2_x2mbl"]
+[ext_resource type="PackedScene" uid="uid://deeypl1n782o1" path="res://scenes/simple_black_tile.tscn" id="3_ij6rj"]
 
 [node name="board-frame" unique_id=1804776445 instance=ExtResource("1_wiq8u")]
-script = ExtResource("2_x2mbl")
+
+[node name="simple-black-tile" parent="." index="1" unique_id=803205496 instance=ExtResource("3_ij6rj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87363684, 0.035737395, -0.8631025)
+
+[node name="simple-black-tile2" parent="." index="2" unique_id=1857136944 instance=ExtResource("3_ij6rj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.374, 0.036, -0.863)
+
+[node name="simple-black-tile3" parent="." index="3" unique_id=660308684 instance=ExtResource("3_ij6rj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.374, 0.036, -0.863)

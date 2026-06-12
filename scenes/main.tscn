@@ -2,12 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://baam03ijnn3d5" path="res://scenes/board_glb.tscn" id="2_0wfyh"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+
 [sub_resource type="Environment" id="Environment_o5qli"]
-background_mode = 1
-background_color = Color(0.6052743, 0.6052743, 0.6052743, 1)
+background_mode = 2
+background_color = Color(0.77037257, 0.5577995, 0.2693476, 1)
+sky = SubResource("Sky_0wfyh")
 ambient_light_source = 2
-ambient_light_color = Color(0.7196582, 0.63402903, 0.45845574, 1)
-ambient_light_energy = 0.3
+ambient_light_color = Color(0.8206929, 0.59821373, 0.27307805, 1)
+ambient_light_energy = 11.43
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_o5qli"]
 
@@ -19,7 +25,8 @@ projection = 1
 current = true
 size = 4.5
 
-[node name="board-frame" parent="." unique_id=882893942 instance=ExtResource("2_0wfyh")]
+[node name="board-frame" parent="." unique_id=1804776445 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32395554, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=567732518]
 environment = SubResource("Environment_o5qli")
@@ -29,6 +36,3 @@ camera_attributes = SubResource("CameraAttributesPractical_o5qli")
 transform = Transform3D(0.7071068, 0.61237246, -0.35355335, 0, 0.49999997, 0.86602545, 0.7071068, -0.61237246, 0.35355335, -0.7094899, 3.9796169, 3.1226501)
 visible = false
 shadow_enabled = true
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=271086017]
-visible = false
