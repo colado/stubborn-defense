@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://djgheonc7u7sy"]
+
+[ext_resource type="PackedScene" uid="uid://boxvpv8dpfiyl" path="res://assets/pieces/black-pawn-marble.glb" id="1_satfc"]
+
+[node name="black-pawn-marble" unique_id=1542515682 instance=ExtResource("1_satfc")]

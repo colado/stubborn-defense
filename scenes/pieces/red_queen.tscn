@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://crfk8jrxjjbds"]
+
+[ext_resource type="PackedScene" uid="uid://6gobp4i47kfj" path="res://assets/pieces/red-queen.glb" id="1_7xtf5"]
+
+[node name="red-queen" unique_id=1077977121 instance=ExtResource("1_7xtf5")]
