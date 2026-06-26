@@ -17,7 +17,7 @@ background_color = Color(0.77037257, 0.5577995, 0.2693476, 1)
 sky = SubResource("Sky_0wfyh")
 ambient_light_source = 2
 ambient_light_color = Color(0.8206929, 0.59821373, 0.27307805, 1)
-ambient_light_energy = 1.43
+ambient_light_energy = 0.8
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_o5qli"]
 
@@ -35,7 +35,6 @@ camera_attributes = SubResource("CameraAttributesPractical_o5qli")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1020839594]
 transform = Transform3D(0.7071068, 0.61237246, -0.35355335, 0, 0.49999997, 0.86602545, 0.7071068, -0.61237246, 0.35355335, -0.7094899, 3.9796169, 3.1226501)
-visible = false
 shadow_enabled = true
 
 [node name="RedKing" parent="." unique_id=104834966 instance=ExtResource("2_0wfyh")]
