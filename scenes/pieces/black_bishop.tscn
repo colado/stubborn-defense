@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ctf1i22t1bqm3"]
+
+[ext_resource type="PackedScene" uid="uid://craqr44ojn2de" path="res://assets/pieces/black-bishop.glb" id="1_0fhg1"]
+
+[node name="black-bishop" unique_id=1522746783 instance=ExtResource("1_0fhg1")]
+
+[node name="Bishop" parent="." index="0" unique_id=400110506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09, 0)

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cm1ir6pf1ucqk"]
+
+[ext_resource type="PackedScene" uid="uid://dnls0w2fg2rv2" path="res://assets/pieces/red-rook.glb" id="1_huymq"]
+
+[node name="red-rook" unique_id=436277399 instance=ExtResource("1_huymq")]

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cv3g1qi5xqrr3"]
+
+[ext_resource type="PackedScene" uid="uid://dbpnmlle78jkn" path="res://assets/pieces/red-bishop-v3.blend" id="1_2be84"]
+
+[node name="red-bishop-v3" unique_id=1218709322 instance=ExtResource("1_2be84")]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://btth6yaf8uip5"]
+
+[ext_resource type="PackedScene" uid="uid://dgrbtw862pvm7" path="res://assets/pieces/black-pawn.glb" id="1_0udju"]
+
+[node name="black-pawn" unique_id=378577358 instance=ExtResource("1_0udju")]
+
+[node name="Pawn" parent="." index="0" unique_id=1358932860]
+transform = Transform3D(1.6478773, 0, 0, 0, 1.6478773, 0, 0, 0, 1.6478773, 0, 0.05, 0)

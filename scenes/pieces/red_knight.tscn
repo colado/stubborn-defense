@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cp1bi4nah0ur3"]
+
+[ext_resource type="PackedScene" uid="uid://t2ihlnb15ye5" path="res://assets/pieces/red-knight.glb" id="1_ep4gq"]
+
+[node name="red-knight" unique_id=1578947325 instance=ExtResource("1_ep4gq")]

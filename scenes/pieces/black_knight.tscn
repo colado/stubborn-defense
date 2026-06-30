@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ik27nkpvhy6i"]
+
+[ext_resource type="PackedScene" uid="uid://crtuvnnh354j0" path="res://assets/pieces/black-knight.glb" id="1_5utwm"]
+
+[node name="black-knight" unique_id=2093686910 instance=ExtResource("1_5utwm")]
+
+[node name="Knight" parent="." index="0" unique_id=929734753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

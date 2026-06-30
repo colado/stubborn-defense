@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://djk17ka5lukew"]
+
+[ext_resource type="PackedScene" uid="uid://dtv0fmq204wts" path="res://assets/pieces/black-rook.glb" id="1_6r43b"]
+
+[node name="black-rook" unique_id=1872562175 instance=ExtResource("1_6r43b")]
+
+[node name="Rook" parent="." index="0" unique_id=2002361088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

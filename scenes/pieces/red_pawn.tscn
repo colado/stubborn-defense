@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ba8751y4e1mof"]
+
+[ext_resource type="PackedScene" uid="uid://bsaqmicjtkaib" path="res://assets/pieces/red-pawn.glb" id="1_ay5q4"]
+
+[node name="red-pawn" unique_id=1429753465 instance=ExtResource("1_ay5q4")]
