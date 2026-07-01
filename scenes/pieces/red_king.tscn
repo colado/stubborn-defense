@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ca20iup850vcp"]
+
+[ext_resource type="PackedScene" uid="uid://8yjah0p5kjry" path="res://assets/pieces/red-king-v4.glb" id="1_u038a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ha28b"]
+albedo_color = Color(0.4820069, 0, 0.06838299, 1)
+emission_enabled = true
+emission = Color(1, 0.13333334, 0.13333334, 1)
+emission_energy_multiplier = 0.2
+
+[node name="red-king-v4" unique_id=1647727869 instance=ExtResource("1_u038a")]
+
+[node name="King" parent="." index="0" unique_id=1414191285]
+material_override = SubResource("StandardMaterial3D_ha28b")
