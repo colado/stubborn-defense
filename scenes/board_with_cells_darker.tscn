@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://bicqqq3y6sak"]
-
-[ext_resource type="PackedScene" uid="uid://1w03cbewe1ok" path="res://assets/board-with-cells-darker.glb" id="1_a8ppg"]
-
-[node name="board-with-cells-darker" unique_id=1003110297 instance=ExtResource("1_a8ppg")]
