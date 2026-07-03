@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://wnaifvgyodi6"]
 
-[ext_resource type="Script" uid="uid://baafism0wk2ld" path="res://scenes/game_manager.gd" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://baafism0wk2ld" path="res://scripts/game_manager.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bacocya722so8" path="res://scenes/pieces/red_king.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cy7fb1ot1i6hg" path="res://scenes/board.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ba8751y4e1mof" path="res://scenes/pieces/red_pawn.tscn" id="3_sugp2"]

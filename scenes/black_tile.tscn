@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://cy7cafajgwdkj"]
-
-[ext_resource type="PackedScene" uid="uid://b02ameqkpgied" path="res://assets/iron-tile025.glb" id="1_4cscl"]
-
-[node name="iron-tile025" unique_id=964972615 instance=ExtResource("1_4cscl")]
