@@ -1,7 +1,7 @@
-class_name Cell
+class_name Tile
 extends Area3D
 
-signal clicked(tile: Cell, coord: String)
+signal clicked(tile: Tile, coord: String)
 
 @export var coord: String = ""
 

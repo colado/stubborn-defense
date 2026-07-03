@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://wnaifvgyodi6"]
 
+[ext_resource type="Script" uid="uid://baafism0wk2ld" path="res://scenes/game_manager.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bacocya722so8" path="res://scenes/pieces/red_king.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cy7fb1ot1i6hg" path="res://scenes/board.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ba8751y4e1mof" path="res://scenes/pieces/red_pawn.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://dnb2vtn2f3emo" path="res://scripts/board.gd" id="3_tbgi4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 
@@ -21,6 +23,7 @@ ambient_light_energy = 0.8
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_o5qli"]
 
 [node name="Main" type="Node3D" unique_id=105329689]
+script = ExtResource("1_jyhfs")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1647190522]
 transform = Transform3D(0.7071068, -0.40860704, 0.5770964, 0, 0.8161376, 0.5778576, -0.7071068, -0.40860704, 0.5770964, 1.1893165, 1.2605594, 1.1991501)
@@ -37,6 +40,7 @@ transform = Transform3D(0.7071068, 0.61237246, -0.35355335, 0, 0.49999997, 0.866
 shadow_enabled = true
 
 [node name="Board" parent="." unique_id=499651688 instance=ExtResource("3_jyhfs")]
+script = ExtResource("3_tbgi4")
 
 [node name="red-pawn" parent="." unique_id=1429753465 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38234675, 0.24873489, 0.69674754)
