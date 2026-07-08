@@ -42,11 +42,11 @@ shadow_enabled = true
 [node name="Board" parent="." unique_id=499651688 instance=ExtResource("3_jyhfs")]
 script = ExtResource("3_tbgi4")
 
-[node name="red-pawn" parent="." unique_id=1429753465 instance=ExtResource("3_sugp2")]
+[node name="RedPawn" parent="." unique_id=1429753465 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38234675, 0.24873489, 0.69674754)
 
-[node name="red-pawn2" parent="." unique_id=1764646859 instance=ExtResource("3_sugp2")]
+[node name="RedPawn2" parent="." unique_id=1764646859 instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12773803, 0.23690808, 0.67927694)
 
-[node name="red-king-v4" parent="." unique_id=1647727869 instance=ExtResource("2_0wfyh")]
+[node name="RedKing" parent="." unique_id=1647727869 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87527764, 0.28, 0.8778675)
