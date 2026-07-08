@@ -2,13 +2,16 @@ extends Area3D
 class_name PlayerPieceBase
 
 var move_tween: Tween;
+var current_board_tile: String
+var piece_type: int
 
-signal piece_selected(int)
+signal piece_selected(piece: Area3D)
 
 func _ready() -> void:
     pass
 
-func move_to(target: Vector2, target_board_cell: String, duration: float = 0.2) -> void:
+func move_to(target: Vector3, target_board_cell: String, duration: float = 0.2) -> void:
+    print("REACHED MOVE_TO")
     if move_tween:
         move_tween.kill()
 
@@ -35,7 +38,6 @@ func on_move_finished(target_board_cell: String):
     # }
     pass
 
-func _input_event(camera, event, position, normal, shape_idx) -> void:
+func _input_event(_camera, event, _position, _normal, _shape_idx) -> void:
     if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:
-        print("reached ", get_instance_id())
-        piece_selected.emit(self)
+        GameState.select_piece(self)
