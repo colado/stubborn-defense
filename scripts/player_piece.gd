@@ -11,7 +11,8 @@ func _ready() -> void:
     pass
 
 func move_to(target: Vector3, target_board_cell: String, duration: float = 0.2) -> void:
-    print("REACHED MOVE_TO")
+    # Make sure vertical position is not changed
+    var normalized_target_location = Vector3(target.x, position.y, target.z)
     if move_tween:
         move_tween.kill()
 
