@@ -10,12 +10,6 @@ signal piece_moving(piece: PlayerPiece, to: Vector3, to_coord: String)
 func _ready() -> void:
 	GameState.board = self
 	populate_board_coordinates()
-	for child in get_children():
-		if child is Tile:
-			if child.coord == "b2" or child.coord == "b3":
-				print(child.coord, " tile global_position: ", child.global_position)
-	print("board_coordinates b2: ", board_coordinates["b2"])
-	print("board_coordinates b3: ", board_coordinates["b3"])
 
 func update_board_data(from: String, to: String, piece_type: PieceType.Value, is_player: bool):
 	if board_data.has(from):

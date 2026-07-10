@@ -9,7 +9,6 @@ signal piece_selected(piece: Area3D)
 
 func _ready() -> void:
 	current_board_tile = GameState.board.get_nearest_tile(global_position)
-	print(piece_type, " ", position, " ", current_board_tile)
 
 func move_to(target: Vector3, target_board_tile: String, duration: float = 0.2) -> void:
 	# Make sure vertical position is not changed

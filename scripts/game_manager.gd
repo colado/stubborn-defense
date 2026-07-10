@@ -29,7 +29,6 @@ func _ready() -> void:
 			child.clicked.connect(_on_tile_selected)
 
 func _on_tile_selected(_tile: Tile, coord: String):
-	print(coord)
 	if allowed_moves.has(coord):
 		board.update_board_data(active_piece.current_board_tile, coord, active_piece.piece_type, true)
 		active_piece.move_to(board.board_coordinates[coord], coord)
@@ -39,7 +38,6 @@ func _on_tile_selected(_tile: Tile, coord: String):
 func _on_piece_selected(piece: Area3D) -> void:
 	active_piece = piece
 	allowed_moves = get_allowed_moves(piece.piece_type, piece.current_board_tile, board.board_data)
-	print(allowed_moves)
 
 func handle_piece_moving(piece: PlayerPiece, to: Vector3, coord: String):
 	for child in get_children():
@@ -48,7 +46,6 @@ func handle_piece_moving(piece: PlayerPiece, to: Vector3, coord: String):
 				child.move_to(to, coord)
 
 func get_allowed_moves(piece_type: PieceType.Value, current_cell: String, board_data: Dictionary) -> Array[String]:
-	print(piece_type, current_cell)
 	match piece_type:
 		PieceType.Value.PAWN:
 			return _get_pawn_moves(current_cell, board_data)
