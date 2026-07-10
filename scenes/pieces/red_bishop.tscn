@@ -45,7 +45,7 @@ shadow_mesh = SubResource("ArrayMesh_ydlij")
 [sub_resource type="BoxShape3D" id="BoxShape3D_322px"]
 size = Vector3(0.20178223, 0.36999512, 0.21325684)
 
-[node name="red-bishop" type="Area3D" unique_id=69012289]
+[node name="RedBishop" type="Area3D" unique_id=69012289]
 script = ExtResource("1_kbsdc")
 
 [node name="Bishop" type="MeshInstance3D" parent="." unique_id=367657216]

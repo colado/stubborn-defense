@@ -2082,7 +2082,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Da2" type="Area3D" parent="." index="2" unique_id=1267691519]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 0.05, 0.875)
 script = ExtResource("2_lixwu")
-coord = "a2"
+coord = "b1"
 
 [node name="Cube_001" type="MeshInstance3D" parent="Area3Da2" index="0" unique_id=944090323]
 mesh = SubResource("ArrayMesh_d6dcs")
@@ -2093,7 +2093,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Da3" type="Area3D" parent="." index="3" unique_id=519753857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0.05, 0.875)
 script = ExtResource("2_lixwu")
-coord = "a3"
+coord = "c1"
 
 [node name="Cube_002" type="MeshInstance3D" parent="Area3Da3" index="0" unique_id=1625261231]
 mesh = SubResource("ArrayMesh_rf048")
@@ -2104,7 +2104,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Da4" type="Area3D" parent="." index="4" unique_id=692022105]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.05, 0.875)
 script = ExtResource("2_lixwu")
-coord = "a4"
+coord = "d1"
 
 [node name="Cube_003" type="MeshInstance3D" parent="Area3Da4" index="0" unique_id=1979404774]
 mesh = SubResource("ArrayMesh_y1md7")
@@ -2115,7 +2115,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Da5" type="Area3D" parent="." index="5" unique_id=307343007]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.05, 0.875)
 script = ExtResource("2_lixwu")
-coord = "a5"
+coord = "e1"
 
 [node name="Cube_004" type="MeshInstance3D" parent="Area3Da5" index="0" unique_id=439413544]
 mesh = SubResource("ArrayMesh_d05di")
@@ -2126,7 +2126,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Da6" type="Area3D" parent="." index="6" unique_id=710739325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.05, 0.875)
 script = ExtResource("2_lixwu")
-coord = "a6"
+coord = "f1"
 
 [node name="Cube_005" type="MeshInstance3D" parent="Area3Da6" index="0" unique_id=1237278074]
 mesh = SubResource("ArrayMesh_0savn")
@@ -2137,7 +2137,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Da7" type="Area3D" parent="." index="7" unique_id=1820491752]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.05, 0.875)
 script = ExtResource("2_lixwu")
-coord = "a7"
+coord = "g1"
 
 [node name="Cube_006" type="MeshInstance3D" parent="Area3Da7" index="0" unique_id=743308311]
 mesh = SubResource("ArrayMesh_mxl4c")
@@ -2148,7 +2148,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Da8" type="Area3D" parent="." index="8" unique_id=88175408]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0.05, 0.875)
 script = ExtResource("2_lixwu")
-coord = "a8"
+coord = "h1"
 
 [node name="Cube_007" type="MeshInstance3D" parent="Area3Da8" index="0" unique_id=730549807]
 mesh = SubResource("ArrayMesh_svmmw")
@@ -2159,7 +2159,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Db1" type="Area3D" parent="." index="9" unique_id=1690247020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, 0.05, 0.625)
 script = ExtResource("2_lixwu")
-coord = "b1"
+coord = "a2"
 
 [node name="Cube_008" type="MeshInstance3D" parent="Area3Db1" index="0" unique_id=693065261]
 mesh = SubResource("ArrayMesh_8meq3")
@@ -2181,7 +2181,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Db3" type="Area3D" parent="." index="11" unique_id=696105793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0.05, 0.625)
 script = ExtResource("2_lixwu")
-coord = "b3"
+coord = "c2"
 
 [node name="Cube_010" type="MeshInstance3D" parent="Area3Db3" index="0" unique_id=1593700982]
 mesh = SubResource("ArrayMesh_oahnf")
@@ -2192,7 +2192,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Db4" type="Area3D" parent="." index="12" unique_id=105610630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.05, 0.625)
 script = ExtResource("2_lixwu")
-coord = "b4"
+coord = "d2"
 
 [node name="Cube_011" type="MeshInstance3D" parent="Area3Db4" index="0" unique_id=1386761226]
 mesh = SubResource("ArrayMesh_ug2c0")
@@ -2203,7 +2203,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Db5" type="Area3D" parent="." index="13" unique_id=262849485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.05, 0.625)
 script = ExtResource("2_lixwu")
-coord = "b5"
+coord = "e2"
 
 [node name="Cube_012" type="MeshInstance3D" parent="Area3Db5" index="0" unique_id=634282894]
 mesh = SubResource("ArrayMesh_4fr0d")
@@ -2214,7 +2214,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Db6" type="Area3D" parent="." index="14" unique_id=2105061931]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.05, 0.625)
 script = ExtResource("2_lixwu")
-coord = "b6"
+coord = "f2"
 
 [node name="Cube_013" type="MeshInstance3D" parent="Area3Db6" index="0" unique_id=1414087788]
 mesh = SubResource("ArrayMesh_myesm")
@@ -2225,7 +2225,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Db7" type="Area3D" parent="." index="15" unique_id=393144623]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.05, 0.625)
 script = ExtResource("2_lixwu")
-coord = "b7"
+coord = "g2"
 
 [node name="Cube_014" type="MeshInstance3D" parent="Area3Db7" index="0" unique_id=1544149739]
 mesh = SubResource("ArrayMesh_x4uc2")
@@ -2236,7 +2236,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Db8" type="Area3D" parent="." index="16" unique_id=346563688]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0.05, 0.625)
 script = ExtResource("2_lixwu")
-coord = "b8"
+coord = "h2"
 
 [node name="Cube_015" type="MeshInstance3D" parent="Area3Db8" index="0" unique_id=1690844945]
 mesh = SubResource("ArrayMesh_cgs52")
@@ -2247,7 +2247,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dc1" type="Area3D" parent="." index="17" unique_id=332198335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, 0.05, 0.375)
 script = ExtResource("2_lixwu")
-coord = "c1"
+coord = "a3"
 
 [node name="Cube_016" type="MeshInstance3D" parent="Area3Dc1" index="0" unique_id=1751481581]
 mesh = SubResource("ArrayMesh_m533c")
@@ -2258,7 +2258,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dc2" type="Area3D" parent="." index="18" unique_id=362125066]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 0.05, 0.375)
 script = ExtResource("2_lixwu")
-coord = "c2"
+coord = "b3"
 
 [node name="Cube_017" type="MeshInstance3D" parent="Area3Dc2" index="0" unique_id=720459939]
 mesh = SubResource("ArrayMesh_soo2e")
@@ -2280,7 +2280,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dc4" type="Area3D" parent="." index="20" unique_id=1245198691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.05, 0.375)
 script = ExtResource("2_lixwu")
-coord = "c4"
+coord = "d3"
 
 [node name="Cube_019" type="MeshInstance3D" parent="Area3Dc4" index="0" unique_id=1039633205]
 mesh = SubResource("ArrayMesh_xleu3")
@@ -2291,7 +2291,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dc5" type="Area3D" parent="." index="21" unique_id=680149110]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.05, 0.375)
 script = ExtResource("2_lixwu")
-coord = "c5"
+coord = "e3"
 
 [node name="Cube_020" type="MeshInstance3D" parent="Area3Dc5" index="0" unique_id=764716676]
 mesh = SubResource("ArrayMesh_34gml")
@@ -2302,7 +2302,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dc6" type="Area3D" parent="." index="22" unique_id=1188315405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.05, 0.375)
 script = ExtResource("2_lixwu")
-coord = "c6"
+coord = "f3"
 
 [node name="Cube_021" type="MeshInstance3D" parent="Area3Dc6" index="0" unique_id=973975355]
 mesh = SubResource("ArrayMesh_lqc5l")
@@ -2313,7 +2313,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dc7" type="Area3D" parent="." index="23" unique_id=30259959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.05, 0.375)
 script = ExtResource("2_lixwu")
-coord = "c7"
+coord = "g3"
 
 [node name="Cube_022" type="MeshInstance3D" parent="Area3Dc7" index="0" unique_id=1053882160]
 mesh = SubResource("ArrayMesh_e1mgk")
@@ -2324,7 +2324,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dc8" type="Area3D" parent="." index="24" unique_id=1968658347]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0.05, 0.375)
 script = ExtResource("2_lixwu")
-coord = "c8"
+coord = "h3"
 
 [node name="Cube_023" type="MeshInstance3D" parent="Area3Dc8" index="0" unique_id=731564746]
 mesh = SubResource("ArrayMesh_rufl6")
@@ -2335,7 +2335,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dd1" type="Area3D" parent="." index="25" unique_id=1069592130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, 0.05, 0.125)
 script = ExtResource("2_lixwu")
-coord = "d1"
+coord = "a4"
 
 [node name="Cube_024" type="MeshInstance3D" parent="Area3Dd1" index="0" unique_id=1445773834]
 mesh = SubResource("ArrayMesh_gbipw")
@@ -2346,7 +2346,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dd2" type="Area3D" parent="." index="26" unique_id=1245882786]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 0.05, 0.125)
 script = ExtResource("2_lixwu")
-coord = "d2"
+coord = "b4"
 
 [node name="Cube_025" type="MeshInstance3D" parent="Area3Dd2" index="0" unique_id=1215478042]
 mesh = SubResource("ArrayMesh_5k0ds")
@@ -2357,7 +2357,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dd3" type="Area3D" parent="." index="27" unique_id=21201350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0.05, 0.125)
 script = ExtResource("2_lixwu")
-coord = "d3"
+coord = "c4"
 
 [node name="Cube_026" type="MeshInstance3D" parent="Area3Dd3" index="0" unique_id=1839410342]
 mesh = SubResource("ArrayMesh_kwtys")
@@ -2379,7 +2379,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dd5" type="Area3D" parent="." index="29" unique_id=1946097647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.05, 0.125)
 script = ExtResource("2_lixwu")
-coord = "d5"
+coord = "d4"
 
 [node name="Cube_028" type="MeshInstance3D" parent="Area3Dd5" index="0" unique_id=1315428479]
 mesh = SubResource("ArrayMesh_t5laj")
@@ -2390,7 +2390,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dd6" type="Area3D" parent="." index="30" unique_id=902983761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.05, 0.125)
 script = ExtResource("2_lixwu")
-coord = "d6"
+coord = "e4"
 
 [node name="Cube_029" type="MeshInstance3D" parent="Area3Dd6" index="0" unique_id=571937713]
 mesh = SubResource("ArrayMesh_ptkru")
@@ -2401,7 +2401,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dd7" type="Area3D" parent="." index="31" unique_id=1237659615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.05, 0.125)
 script = ExtResource("2_lixwu")
-coord = "d7"
+coord = "g4"
 
 [node name="Cube_030" type="MeshInstance3D" parent="Area3Dd7" index="0" unique_id=350773322]
 mesh = SubResource("ArrayMesh_t5sqx")
@@ -2412,7 +2412,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dd8" type="Area3D" parent="." index="32" unique_id=922979655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0.05, 0.125)
 script = ExtResource("2_lixwu")
-coord = "d8"
+coord = "h4"
 
 [node name="Cube_031" type="MeshInstance3D" parent="Area3Dd8" index="0" unique_id=687739837]
 mesh = SubResource("ArrayMesh_hudxq")
@@ -2423,7 +2423,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3De1" type="Area3D" parent="." index="33" unique_id=1153444972]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, 0.05, -0.125)
 script = ExtResource("2_lixwu")
-coord = "e1"
+coord = "a5"
 
 [node name="Cube_032" type="MeshInstance3D" parent="Area3De1" index="0" unique_id=315215962]
 mesh = SubResource("ArrayMesh_i7lbw")
@@ -2434,7 +2434,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3De2" type="Area3D" parent="." index="34" unique_id=853568708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 0.05, -0.125)
 script = ExtResource("2_lixwu")
-coord = "e2"
+coord = "b5"
 
 [node name="Cube_033" type="MeshInstance3D" parent="Area3De2" index="0" unique_id=437556145]
 mesh = SubResource("ArrayMesh_xwwqh")
@@ -2445,7 +2445,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3De3" type="Area3D" parent="." index="35" unique_id=1735349990]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0.05, -0.125)
 script = ExtResource("2_lixwu")
-coord = "e3"
+coord = "c5"
 
 [node name="Cube_034" type="MeshInstance3D" parent="Area3De3" index="0" unique_id=1375507658]
 mesh = SubResource("ArrayMesh_esot5")
@@ -2456,7 +2456,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3De4" type="Area3D" parent="." index="36" unique_id=816669609]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.05, -0.125)
 script = ExtResource("2_lixwu")
-coord = "e4"
+coord = "d5"
 
 [node name="Cube_035" type="MeshInstance3D" parent="Area3De4" index="0" unique_id=1681785900]
 mesh = SubResource("ArrayMesh_c404d")
@@ -2478,7 +2478,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3De6" type="Area3D" parent="." index="38" unique_id=1119530861]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.05, -0.125)
 script = ExtResource("2_lixwu")
-coord = "e6"
+coord = "f5"
 
 [node name="Cube_037" type="MeshInstance3D" parent="Area3De6" index="0" unique_id=354078093]
 mesh = SubResource("ArrayMesh_rptwv")
@@ -2489,7 +2489,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3De7" type="Area3D" parent="." index="39" unique_id=1798548194]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.05, -0.125)
 script = ExtResource("2_lixwu")
-coord = "e7"
+coord = "g5"
 
 [node name="Cube_038" type="MeshInstance3D" parent="Area3De7" index="0" unique_id=2141602535]
 mesh = SubResource("ArrayMesh_6tf3u")
@@ -2500,7 +2500,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3De8" type="Area3D" parent="." index="40" unique_id=539009732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0.05, -0.125)
 script = ExtResource("2_lixwu")
-coord = "e8"
+coord = "h5"
 
 [node name="Cube_039" type="MeshInstance3D" parent="Area3De8" index="0" unique_id=1556256211]
 mesh = SubResource("ArrayMesh_3lu20")
@@ -2511,7 +2511,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Df1" type="Area3D" parent="." index="41" unique_id=2096812023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, 0.05, -0.375)
 script = ExtResource("2_lixwu")
-coord = "f1"
+coord = "a6"
 
 [node name="Cube_040" type="MeshInstance3D" parent="Area3Df1" index="0" unique_id=680256505]
 mesh = SubResource("ArrayMesh_j0exn")
@@ -2522,7 +2522,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Df2" type="Area3D" parent="." index="42" unique_id=1864294745]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 0.05, -0.375)
 script = ExtResource("2_lixwu")
-coord = "f2"
+coord = "b6"
 
 [node name="Cube_041" type="MeshInstance3D" parent="Area3Df2" index="0" unique_id=325044824]
 mesh = SubResource("ArrayMesh_7lp2e")
@@ -2533,7 +2533,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Df3" type="Area3D" parent="." index="43" unique_id=1186766687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0.05, -0.375)
 script = ExtResource("2_lixwu")
-coord = "f3"
+coord = "c6"
 
 [node name="Cube_042" type="MeshInstance3D" parent="Area3Df3" index="0" unique_id=1322227229]
 mesh = SubResource("ArrayMesh_6ncie")
@@ -2544,7 +2544,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Df4" type="Area3D" parent="." index="44" unique_id=2107273263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.05, -0.375)
 script = ExtResource("2_lixwu")
-coord = "f4"
+coord = "d6"
 
 [node name="Cube_043" type="MeshInstance3D" parent="Area3Df4" index="0" unique_id=1688338592]
 mesh = SubResource("ArrayMesh_45u3l")
@@ -2555,7 +2555,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Df5" type="Area3D" parent="." index="45" unique_id=441351074]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.05, -0.375)
 script = ExtResource("2_lixwu")
-coord = "f5"
+coord = "e6"
 
 [node name="Cube_044" type="MeshInstance3D" parent="Area3Df5" index="0" unique_id=588216503]
 mesh = SubResource("ArrayMesh_fmbqv")
@@ -2577,7 +2577,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Df7" type="Area3D" parent="." index="47" unique_id=234711024]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.05, -0.375)
 script = ExtResource("2_lixwu")
-coord = "f7"
+coord = "g6"
 
 [node name="Cube_046" type="MeshInstance3D" parent="Area3Df7" index="0" unique_id=441986339]
 mesh = SubResource("ArrayMesh_ry7pp")
@@ -2588,7 +2588,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Df8" type="Area3D" parent="." index="48" unique_id=1450286596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0.05, -0.375)
 script = ExtResource("2_lixwu")
-coord = "f8"
+coord = "h6"
 
 [node name="Cube_047" type="MeshInstance3D" parent="Area3Df8" index="0" unique_id=211025965]
 mesh = SubResource("ArrayMesh_joii8")
@@ -2599,7 +2599,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dg1" type="Area3D" parent="." index="49" unique_id=470643304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, 0.05, -0.625)
 script = ExtResource("2_lixwu")
-coord = "g1"
+coord = "a7"
 
 [node name="Cube_048" type="MeshInstance3D" parent="Area3Dg1" index="0" unique_id=1154759941]
 mesh = SubResource("ArrayMesh_uut80")
@@ -2610,7 +2610,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dg2" type="Area3D" parent="." index="50" unique_id=2089670185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 0.05, -0.625)
 script = ExtResource("2_lixwu")
-coord = "g2"
+coord = "b7"
 
 [node name="Cube_049" type="MeshInstance3D" parent="Area3Dg2" index="0" unique_id=271305888]
 mesh = SubResource("ArrayMesh_7tu7d")
@@ -2621,7 +2621,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dg3" type="Area3D" parent="." index="51" unique_id=970414517]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0.05, -0.625)
 script = ExtResource("2_lixwu")
-coord = "g3"
+coord = "c7"
 
 [node name="Cube_050" type="MeshInstance3D" parent="Area3Dg3" index="0" unique_id=973361173]
 mesh = SubResource("ArrayMesh_qjngn")
@@ -2632,7 +2632,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dg4" type="Area3D" parent="." index="52" unique_id=769430537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.05, -0.625)
 script = ExtResource("2_lixwu")
-coord = "g4"
+coord = "d7"
 
 [node name="Cube_051" type="MeshInstance3D" parent="Area3Dg4" index="0" unique_id=748916661]
 mesh = SubResource("ArrayMesh_lufk4")
@@ -2643,7 +2643,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dg5" type="Area3D" parent="." index="53" unique_id=1185663283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.05, -0.625)
 script = ExtResource("2_lixwu")
-coord = "g5"
+coord = "e7"
 
 [node name="Cube_052" type="MeshInstance3D" parent="Area3Dg5" index="0" unique_id=327132999]
 mesh = SubResource("ArrayMesh_6jrxp")
@@ -2654,7 +2654,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dg6" type="Area3D" parent="." index="54" unique_id=1106480135]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.05, -0.625)
 script = ExtResource("2_lixwu")
-coord = "g6"
+coord = "f7"
 
 [node name="Cube_053" type="MeshInstance3D" parent="Area3Dg6" index="0" unique_id=592670932]
 mesh = SubResource("ArrayMesh_6lenm")
@@ -2676,7 +2676,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dg8" type="Area3D" parent="." index="56" unique_id=1022975921]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 0.05, -0.625)
 script = ExtResource("2_lixwu")
-coord = "g8"
+coord = "h7"
 
 [node name="Cube_055" type="MeshInstance3D" parent="Area3Dg8" index="0" unique_id=1089336194]
 mesh = SubResource("ArrayMesh_ia7jl")
@@ -2687,7 +2687,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dh1" type="Area3D" parent="." index="57" unique_id=589583341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, 0.05, -0.875)
 script = ExtResource("2_lixwu")
-coord = "h1"
+coord = "a8"
 
 [node name="Cube_056" type="MeshInstance3D" parent="Area3Dh1" index="0" unique_id=1850969672]
 mesh = SubResource("ArrayMesh_n8kj2")
@@ -2698,7 +2698,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dh2" type="Area3D" parent="." index="58" unique_id=1472326550]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.625, 0.05, -0.875)
 script = ExtResource("2_lixwu")
-coord = "h2"
+coord = "b8"
 
 [node name="Cube_057" type="MeshInstance3D" parent="Area3Dh2" index="0" unique_id=1759872836]
 mesh = SubResource("ArrayMesh_ytjgs")
@@ -2709,7 +2709,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dh3" type="Area3D" parent="." index="59" unique_id=357430868]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0.05, -0.875)
 script = ExtResource("2_lixwu")
-coord = "h3"
+coord = "c8"
 
 [node name="Cube_058" type="MeshInstance3D" parent="Area3Dh3" index="0" unique_id=795785289]
 mesh = SubResource("ArrayMesh_ekvrr")
@@ -2720,7 +2720,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dh4" type="Area3D" parent="." index="60" unique_id=1914405961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.05, -0.875)
 script = ExtResource("2_lixwu")
-coord = "h4"
+coord = "d8"
 
 [node name="Cube_059" type="MeshInstance3D" parent="Area3Dh4" index="0" unique_id=1695328697]
 mesh = SubResource("ArrayMesh_75x8d")
@@ -2731,7 +2731,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dh5" type="Area3D" parent="." index="61" unique_id=516838604]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0.05, -0.875)
 script = ExtResource("2_lixwu")
-coord = "h5"
+coord = "e8"
 
 [node name="Cube_060" type="MeshInstance3D" parent="Area3Dh5" index="0" unique_id=725341284]
 mesh = SubResource("ArrayMesh_n4xba")
@@ -2742,7 +2742,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dh6" type="Area3D" parent="." index="62" unique_id=2065613811]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.05, -0.875)
 script = ExtResource("2_lixwu")
-coord = "h6"
+coord = "f8"
 
 [node name="Cube_061" type="MeshInstance3D" parent="Area3Dh6" index="0" unique_id=683031915]
 mesh = SubResource("ArrayMesh_xsa36")
@@ -2753,7 +2753,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dh7" type="Area3D" parent="." index="63" unique_id=1473758171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.625, 0.05, -0.875)
 script = ExtResource("2_lixwu")
-coord = "h7"
+coord = "g8"
 
 [node name="Cube_062" type="MeshInstance3D" parent="Area3Dh7" index="0" unique_id=997374322]
 mesh = SubResource("ArrayMesh_sc82c")

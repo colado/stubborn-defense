@@ -2,23 +2,20 @@
 extends Node3D
 
 var board_coordinates: Dictionary[String, Vector3] = {}
+var board_positions_to_coordinates: Dictionary[Vector3, String] = {}
 var board_data: Dictionary[String, BoardData] = {}
 
 signal piece_moving(piece: PlayerPiece, to: Vector3, to_coord: String)
 
 func _ready() -> void:
-	for tile in get_children():
-		if tile is Tile:
-			tile.clicked.connect(_on_tile_clicked)
-
+	GameState.board = self
 	populate_board_coordinates()
-
-func _on_tile_clicked(_tile: Tile, coord: String) -> void:
-	print(GameState.selected_piece)
-	if GameState.selected_piece != null:
-		update_board_data(GameState.selected_piece.current_board_tile, coord, GameState.selected_piece.piece_type, true)
-		piece_moving.emit(GameState.selected_piece, board_coordinates[coord], coord)
-
+	for child in get_children():
+		if child is Tile:
+			if child.coord == "b2" or child.coord == "b3":
+				print(child.coord, " tile global_position: ", child.global_position)
+	print("board_coordinates b2: ", board_coordinates["b2"])
+	print("board_coordinates b3: ", board_coordinates["b3"])
 
 func update_board_data(from: String, to: String, piece_type: PieceType.Value, is_player: bool):
 	if board_data.has(from):
@@ -34,13 +31,26 @@ func populate_board_coordinates() -> void:
 
 	var letters := ["a", "b", "c", "d", "e", "f", "g", "h"]
 
-	var z := start_z
-	for row in range(letters.size()): # a, b, c, ... h
-		var x := start_x
-		for col in range(1, 9): # 1 to 8
+	var x := start_x
+	for row in range(letters.size()):   # file -> X
+		var z := start_z
+		for col in range(1, 9):         # rank -> Z (decreasing)
 			var coord := "%s%d" % [letters[row], col]
 			board_coordinates[coord] = Vector3(x, start_y, z)
-			x += step
-		z -= step
+			z -= step
+		x += step
 
-	print(board_coordinates["b5"])
+func get_nearest_tile(pos: Vector3, tolerance: float = 0.15) -> String:
+	var closest_coord := ""
+	var closest_dist := INF
+
+	for coord in board_coordinates.keys():
+		var cell_pos: Vector3 = board_coordinates[coord]
+		var dist := Vector2(pos.x, pos.z).distance_to(Vector2(cell_pos.x, cell_pos.z))
+		if dist < closest_dist:
+			closest_dist = dist
+			closest_coord = coord
+
+	if closest_dist <= tolerance:
+		return closest_coord
+	return ""
