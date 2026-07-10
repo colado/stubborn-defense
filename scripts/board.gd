@@ -4,7 +4,7 @@ extends Node3D
 var board_coordinates: Dictionary[String, Vector3] = {}
 var board_data: Dictionary[String, BoardData] = {}
 
-signal piece_moving(piece: PlayerPieceBase, to: Vector3, to_coord: String)
+signal piece_moving(piece: PlayerPiece, to: Vector3, to_coord: String)
 
 func _ready() -> void:
 	for tile in get_children():
@@ -43,4 +43,4 @@ func populate_board_coordinates() -> void:
 			x += step
 		z -= step
 
-	print(board_coordinates["b3"])
+	print(board_coordinates["b5"])

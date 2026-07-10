@@ -43,10 +43,10 @@ shadow_enabled = true
 script = ExtResource("3_tbgi4")
 
 [node name="RedPawn" parent="." unique_id=1429753465 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382, 0.249, 0.627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382, 0.24690323, 0.627)
 
 [node name="RedPawn2" parent="." unique_id=1764646859 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128, 0.237, 0.629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128, 0.22687714, 0.629)
 
 [node name="RedKing" parent="." unique_id=1647727869 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13724422, 0.28, 0.8778675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13724422, 0.2715315, 0.8778675)

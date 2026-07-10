@@ -1,1 +1,1 @@
-extends PlayerPieceBase
+extends PlayerPiece

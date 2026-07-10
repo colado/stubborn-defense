@@ -1,5 +1,5 @@
 extends Area3D
-class_name PlayerPieceBase
+class_name PlayerPiece
 
 var move_tween: Tween;
 var current_board_tile: String
@@ -18,7 +18,7 @@ func move_to(target: Vector3, target_board_cell: String, duration: float = 0.2) 
 
     move_tween = create_tween()
 
-    move_tween.tween_property(self, "global_position", target, duration) \
+    move_tween.tween_property(self, "global_position", normalized_target_location, duration) \
         .set_trans(Tween.TransitionType.TRANS_SINE) \
         .set_ease(Tween.EaseType.EASE_OUT)
 
