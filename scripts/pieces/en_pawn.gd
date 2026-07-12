@@ -7,7 +7,6 @@ func _init() -> void:
 	piece_type = GlobalEnums.PieceType.EN_PAWN
 
 func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
-	print("REACHEDD")
 	var origin := GameState.board.cell_to_coords(current_cell)
 	var forward := Vector2i(0, -1)
 
@@ -22,18 +21,14 @@ func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
 
 	# 2. no capture available — fall back to regular forward movement
 	if chosen_cell == "":
-		print("REACHED 1")
 		var one_step := GameState.board.coords_to_cell(origin + forward)
 		var one_step_free := one_step != "" and not board_data.has(one_step)
-		print("ONE STEP FREE", one_step_free, one_step)
 
 		if not has_moved and one_step_free:
-			print("REACHED 2")
 			var two_step := GameState.board.coords_to_cell(origin + forward * 2)
 			var two_step_free := two_step != "" and not board_data.has(two_step)
 
 			if two_step_free:
-				print("HERE???")
 				chosen_cell = [one_step, two_step][randi() % 2]
 			else:
 				chosen_cell = one_step

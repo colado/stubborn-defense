@@ -11,7 +11,6 @@ func _handle_state_changed(_old_state: GameState.State, new_state: GameState.Sta
 
 func _handle_enemy_movement() -> void:
 	var pieces := get_children()
-	print(pieces.size())
 	_pieces_remaining = pieces.size()
 
 	if _pieces_remaining == 0:
@@ -28,5 +27,4 @@ func _on_piece_move_finished(_piece: Node) -> void:
 
 
 func _on_all_pieces_done() -> void:
-	print("ALL PIECES MOVED")
 	GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
