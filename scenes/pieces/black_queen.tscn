@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3u2dhlne836m" path="res://assets/pieces/black-queen.glb" id="1_bxlxo"]
 
-[node name="black-queen" unique_id=1966671008 instance=ExtResource("1_bxlxo")]
+[node name="BlackQueen" unique_id=1966671008 instance=ExtResource("1_bxlxo")]
 
 [node name="Queen" parent="." index="0" unique_id=711269438]
 transform = Transform3D(0, 0.9286122, -0.37105197, -1.0000001, -1.1920929e-07, -1.4901161e-08, -1.4901161e-08, 0.37105197, 0.9286121, 0, 0.09, 0)

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://jfoidd7dcqm6" path="res://assets/pieces/black-king.glb" id="1_15bf2"]
 
-[node name="black-king" unique_id=1467893595 instance=ExtResource("1_15bf2")]
+[node name="BlackKing" unique_id=1467893595 instance=ExtResource("1_15bf2")]
 
 [node name="King" parent="." index="0" unique_id=4901334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, 0)

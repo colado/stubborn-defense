@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cm1ir6pf1ucqk" path="res://scenes/pieces/red_rook.tscn" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cp1bi4nah0ur3" path="res://scenes/pieces/red_knight.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://duirv0rnghvep" path="res://scenes/pieces/red_bishop.tscn" id="9_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://btth6yaf8uip5" path="res://scenes/pieces/black_pawn.tscn" id="10_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 
@@ -66,3 +67,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37039495, 0.27840993, 0.868
 
 [node name="RedBishop" parent="." unique_id=69012289 instance=ExtResource("9_ya4ey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6286216, 0.27634752, 0.8800511)
+
+[node name="EnemyController" type="Node3D" parent="." unique_id=524614671]
+
+[node name="BlackPawn" parent="EnemyController" unique_id=378577358 instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10972822, 0.19786525, -0.59969354)
