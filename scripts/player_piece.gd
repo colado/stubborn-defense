@@ -2,13 +2,13 @@ extends Area3D
 class_name PlayerPiece
 
 var move_tween: Tween;
-var current_board_tile: String
+var current_tile: String
 var piece_type: int
 
 signal piece_selected(piece: Area3D)
 
 func _ready() -> void:
-	current_board_tile = GameState.board.get_nearest_tile(global_position)
+	current_tile = GameState.board.get_nearest_tile(global_position)
 
 func move_to(target: Vector3, target_board_tile: String, duration: float = 0.2) -> void:
 	# Make sure vertical position is not changed
@@ -27,7 +27,7 @@ func move_to(target: Vector3, target_board_tile: String, duration: float = 0.2) 
 	)
 
 func on_move_finished(coord: String):
-	current_board_tile = coord
+	current_tile = coord
 
 func _input_event(_camera, event, _position, _normal, _shape_idx) -> void:
 	if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed:

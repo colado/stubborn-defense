@@ -1,4 +1,4 @@
 extends PlayerPiece
 
 func _init() -> void:
-    piece_type = PieceType.Value.KNIGHT
+    piece_type = GlobalEnums.PieceType.KNIGHT

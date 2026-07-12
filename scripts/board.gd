@@ -11,7 +11,7 @@ func _ready() -> void:
 	GameState.board = self
 	populate_board_coordinates()
 
-func update_board_data(from: String, to: String, piece_type: PieceType.Value, is_player: bool):
+func update_board_data(from: String, to: String, piece_type: GlobalEnums.PieceType, is_player: bool):
 	if board_data.has(from):
 		board_data.erase(from)
 

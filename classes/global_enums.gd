@@ -1,6 +1,6 @@
-class_name PieceType
+class_name GlobalEnums
 
-enum Value {
+enum PieceType {
     PAWN,
     KNIGHT,
     BISHOP,

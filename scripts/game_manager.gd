@@ -23,21 +23,21 @@ func _ready() -> void:
 	for child in get_children():
 		if child is PlayerPiece:
 			child.piece_selected.connect(_on_piece_selected)
-			board.update_board_data(child.current_board_tile, child.current_board_tile, child.piece_type, true)
+			board.update_board_data(child.current_tile, child.current_tile, child.piece_type, true)
 	for child in board.get_children():
 		if child is Tile:
 			child.clicked.connect(_on_tile_selected)
 
 func _on_tile_selected(_tile: Tile, coord: String):
 	if allowed_moves.has(coord):
-		board.update_board_data(active_piece.current_board_tile, coord, active_piece.piece_type, true)
+		board.update_board_data(active_piece.current_tile, coord, active_piece.piece_type, true)
 		active_piece.move_to(board.board_coordinates[coord], coord)
 	active_piece = null
 	allowed_moves = []
 
 func _on_piece_selected(piece: Area3D) -> void:
 	active_piece = piece
-	allowed_moves = get_allowed_moves(piece.piece_type, piece.current_board_tile, board.board_data)
+	allowed_moves = get_allowed_moves(piece.piece_type, piece.current_tile, board.board_data)
 
 func handle_piece_moving(piece: PlayerPiece, to: Vector3, coord: String):
 	for child in get_children():
@@ -45,22 +45,22 @@ func handle_piece_moving(piece: PlayerPiece, to: Vector3, coord: String):
 			if child.get_instance_id() == piece.get_instance_id():
 				child.move_to(to, coord)
 
-func get_allowed_moves(piece_type: PieceType.Value, current_cell: String, board_data: Dictionary) -> Array[String]:
+func get_allowed_moves(piece_type: GlobalEnums.PieceType, current_cell: String, board_data: Dictionary) -> Array[String]:
 	match piece_type:
-		PieceType.Value.PAWN:
+		GlobalEnums.PieceType.PAWN:
 			return _get_pawn_moves(current_cell, board_data)
-		PieceType.Value.KNIGHT:
+		GlobalEnums.PieceType.KNIGHT:
 			return _get_knight_moves(current_cell, board_data)
-		PieceType.Value.BISHOP:
+		GlobalEnums.PieceType.BISHOP:
 			return _get_sliding_moves(current_cell, board_data, [Vector2i(1, 1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(-1, -1)])
-		PieceType.Value.ROOK:
+		GlobalEnums.PieceType.ROOK:
 			return _get_sliding_moves(current_cell, board_data, [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)])
-		PieceType.Value.QUEEN:
+		GlobalEnums.PieceType.QUEEN:
 			return _get_sliding_moves(current_cell, board_data, [
 				Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0),
 				Vector2i(1, 1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(-1, -1)
 			])
-		PieceType.Value.KING:
+		GlobalEnums.PieceType.KING:
 			return _get_king_moves(current_cell, board_data)
 	return []
 
