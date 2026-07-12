@@ -29,15 +29,19 @@ func _ready() -> void:
 			child.clicked.connect(_on_tile_selected)
 
 func _on_tile_selected(_tile: Tile, coord: String):
-	if allowed_moves.has(coord):
-		board.update_board_data(active_piece.current_tile, coord, active_piece.piece_type, true)
-		active_piece.move_to(board.board_coordinates[coord], coord)
-	active_piece = null
-	allowed_moves = []
+	if GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION:
+		if allowed_moves.has(coord):
+			board.update_board_data(active_piece.current_tile, coord, active_piece.piece_type, true)
+			active_piece.move_to(board.board_coordinates[coord], coord)
+		active_piece = null
+		allowed_moves = []
+		GameState.change_state(GameState.State.ENEMY_TURN)
 
 func _on_piece_selected(piece: Area3D) -> void:
-	active_piece = piece
-	allowed_moves = get_allowed_moves(piece.piece_type, piece.current_tile, board.board_data)
+	if GameState.current_state == GameState.State.WAITING_FOR_PIECE_SELECTION:
+		active_piece = piece
+		allowed_moves = get_allowed_moves(piece.piece_type, piece.current_tile, board.board_data)
+		GameState.change_state(GameState.State.WAITING_FOR_TILE_SELECTION)
 
 func handle_piece_moving(piece: PlayerPiece, to: Vector3, coord: String):
 	for child in get_children():
