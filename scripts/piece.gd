@@ -1,5 +1,12 @@
-extends Piece
-class_name EnemyPiece
+extends Node3D
+class_name Piece
+
+var current_cell: String
+var piece_type: int
+var move_tween: Tween
+
+func _ready() -> void:
+	current_cell = GameState.board.get_nearest_tile(global_position)
 
 func move_to(target: Vector3, target_board_tile: String, duration: float = 0.2) -> void:
 	# Make sure vertical position is not changed
@@ -17,6 +24,10 @@ func move_to(target: Vector3, target_board_tile: String, duration: float = 0.2) 
 		on_move_finished(target_board_tile)
 	)
 
-func on_move_finished(coord: String):
-	GameState.board.update_board_data(current_cell, coord, self, false)
-	current_cell = coord
+func on_move_finished(_coord: String):
+	# Implemented in subclasses
+	pass
+
+func handle_getting_captured():
+	GameState.board.board_data.erase(current_cell)
+	queue_free()

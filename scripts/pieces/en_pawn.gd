@@ -43,6 +43,9 @@ func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
 	_pending_on_complete = on_complete
 	has_moved = true
 
+	if GameState.board.board_data.has(chosen_cell) and GameState.board.board_data[chosen_cell].is_occupied_by_player:
+		GameState.board.board_data[chosen_cell].piece.handle_getting_captured()
+
 	move_to(GameState.board.board_coordinates[chosen_cell], chosen_cell)
 
 
