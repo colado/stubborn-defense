@@ -6,5 +6,7 @@ enum PieceType {
     BISHOP,
     ROOK,
     QUEEN,
-    KING
+    KING,
+    EN_PAWN,
+    EN_QUEEN
 }

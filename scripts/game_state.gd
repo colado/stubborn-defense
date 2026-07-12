@@ -10,7 +10,7 @@ enum State {
 signal state_changed(old_state: State, new_state: State)
 
 var current_state: State = State.WAITING_FOR_PIECE_SELECTION
-var board = null
+var board: Board = null
 
 func change_state(new_state: State) -> void:
 	var old_state := current_state

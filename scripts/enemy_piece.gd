@@ -1,11 +1,12 @@
 extends Node3D
+class_name EnemyPiece
 
-var current_tile: String
+var current_cell: String
 var piece_type: int
 var move_tween: Tween
 
 func _ready() -> void:
-	current_tile = GameState.board.get_nearest_tile(global_position)
+	current_cell = GameState.board.get_nearest_tile(global_position)
 
 func move_to(target: Vector3, target_board_tile: String, duration: float = 0.2) -> void:
 	# Make sure vertical position is not changed
@@ -24,4 +25,4 @@ func move_to(target: Vector3, target_board_tile: String, duration: float = 0.2) 
 	)
 
 func on_move_finished(coord: String):
-	current_tile = coord
+	current_cell = coord

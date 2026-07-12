@@ -1,11 +1,23 @@
-@tool
+class_name Board
 extends Node3D
+
+const FILES := ["a", "b", "c", "d", "e", "f", "g", "h"]
 
 var board_coordinates: Dictionary[String, Vector3] = {}
 var board_positions_to_coordinates: Dictionary[Vector3, String] = {}
 var board_data: Dictionary[String, BoardData] = {}
 
 signal piece_moving(piece: PlayerPiece, to: Vector3, to_coord: String)
+
+func cell_to_coords(cell: String) -> Vector2i:
+	var file := cell.substr(0, 1)
+	var rank := int(cell.substr(1, 1))
+	return Vector2i(FILES.find(file), rank - 1)
+
+func coords_to_cell(coords: Vector2i) -> String:
+	if coords.x < 0 or coords.x > 7 or coords.y < 0 or coords.y > 7:
+		return ""
+	return "%s%d" % [FILES[coords.x], coords.y + 1]
 
 func _ready() -> void:
 	GameState.board = self
