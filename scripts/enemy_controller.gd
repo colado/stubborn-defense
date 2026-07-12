@@ -4,6 +4,8 @@ var _pieces_remaining: int = 0
 
 func _ready() -> void:
 	GameState.state_changed.connect(_handle_state_changed)
+	for child in get_children():
+		GameState.board.update_board_data(child.current_cell, child.current_cell, child, false)
 
 func _handle_state_changed(_old_state: GameState.State, new_state: GameState.State):
 	if new_state == GameState.State.ENEMY_TURN:

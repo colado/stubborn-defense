@@ -46,7 +46,7 @@ func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
 	move_to(GameState.board.board_coordinates[chosen_cell], chosen_cell)
 
 
-func on_move_finished(target_board_tile: String) -> void:
-	current_cell = target_board_tile
+func on_move_finished(target_board_cell: String) -> void:
+	super.on_move_finished(target_board_cell)
 	if _pending_on_complete.is_valid():
 		_pending_on_complete.call(self)

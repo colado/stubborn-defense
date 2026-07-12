@@ -7,8 +7,6 @@ var board_coordinates: Dictionary[String, Vector3] = {}
 var board_positions_to_coordinates: Dictionary[Vector3, String] = {}
 var board_data: Dictionary[String, BoardData] = {}
 
-signal piece_moving(piece: PlayerPiece, to: Vector3, to_coord: String)
-
 func cell_to_coords(cell: String) -> Vector2i:
 	var file := cell.substr(0, 1)
 	var rank := int(cell.substr(1, 1))
@@ -23,11 +21,11 @@ func _ready() -> void:
 	GameState.board = self
 	populate_board_coordinates()
 
-func update_board_data(from: String, to: String, piece_type: GlobalEnums.PieceType, is_player: bool):
+func update_board_data(from: String, to: String, piece: Node3D, is_player: bool):
 	if board_data.has(from):
 		board_data.erase(from)
 
-	board_data[to] = BoardData.new(piece_type, board_coordinates[to], is_player)
+	board_data[to] = BoardData.new(piece, board_coordinates[to], is_player)
 
 func populate_board_coordinates() -> void:
 	var start_x := -0.87

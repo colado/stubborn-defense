@@ -5,10 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cy7fb1ot1i6hg" path="res://scenes/board.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ba8751y4e1mof" path="res://scenes/pieces/red_pawn.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://dnb2vtn2f3emo" path="res://scripts/board.gd" id="3_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://crfk8jrxjjbds" path="res://scenes/pieces/red_queen.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://cm1ir6pf1ucqk" path="res://scenes/pieces/red_rook.tscn" id="7_85g3d"]
-[ext_resource type="PackedScene" uid="uid://cp1bi4nah0ur3" path="res://scenes/pieces/red_knight.tscn" id="8_choun"]
-[ext_resource type="PackedScene" uid="uid://duirv0rnghvep" path="res://scenes/pieces/red_bishop.tscn" id="9_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://btth6yaf8uip5" path="res://scenes/pieces/black_pawn.tscn" id="10_choun"]
 [ext_resource type="Script" uid="uid://b0c1742yady1x" path="res://scripts/enemy_controller.gd" id="10_eb6dy"]
 [ext_resource type="Script" uid="uid://bvqp24p5k3qtl" path="res://scripts/pieces/en_pawn.gd" id="12_trceg"]
@@ -57,18 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128, 0.22687714, 0.629)
 
 [node name="RedKing" parent="." unique_id=1647727869 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13724422, 0.2715315, 0.8778675)
-
-[node name="RedQueen" parent="." unique_id=1946652728 instance=ExtResource("6_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87716985, 0.28683585, 0.8697679)
-
-[node name="RedRook" parent="." unique_id=232361473 instance=ExtResource("7_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12585442, 0.28441882, 0.87643296)
-
-[node name="RedKnight" parent="." unique_id=1564841996 instance=ExtResource("8_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37039495, 0.27840993, 0.8686208)
-
-[node name="RedBishop" parent="." unique_id=69012289 instance=ExtResource("9_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6286216, 0.27634752, 0.8800511)
 
 [node name="EnemyController" type="Node3D" parent="." unique_id=524614671]
 script = ExtResource("10_eb6dy")

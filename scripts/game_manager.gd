@@ -6,12 +6,10 @@ var active_piece: Area3D
 var allowed_moves: Array[String]
 
 func _ready() -> void:
-	board.piece_moving.connect(handle_piece_moving)
-	
 	for child in get_children():
 		if child is PlayerPiece:
 			child.piece_selected.connect(_on_piece_selected)
-			board.update_board_data(child.current_cell, child.current_cell, child.piece_type, true)
+			board.update_board_data(child.current_cell, child.current_cell, child, true)
 	for child in board.get_children():
 		if child is Tile:
 			child.clicked.connect(_on_tile_selected)
@@ -19,23 +17,21 @@ func _ready() -> void:
 func _on_tile_selected(_tile: Tile, coord: String):
 	if GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION:
 		if allowed_moves.has(coord):
-			board.update_board_data(active_piece.current_cell, coord, active_piece.piece_type, true)
+			if board.board_data.has(coord) and not board.board_data[coord].is_occupied_by_player:
+				board.board_data[coord].piece.handle_getting_captured()
+
+			board.update_board_data(active_piece.current_cell, coord, active_piece, true)
 			active_piece.move_to(board.board_coordinates[coord], coord)
+
 		active_piece = null
 		allowed_moves = []
-		GameState.change_state(GameState.State.ENEMY_TURN)
+		GameState.change_state(GameState.State.PLAYER_PIECE_MOVING)
 
 func _on_piece_selected(piece: Area3D) -> void:
 	if GameState.current_state == GameState.State.WAITING_FOR_PIECE_SELECTION:
 		active_piece = piece
 		allowed_moves = get_allowed_moves(piece.piece_type, piece.current_cell, board.board_data)
 		GameState.change_state(GameState.State.WAITING_FOR_TILE_SELECTION)
-
-func handle_piece_moving(piece: PlayerPiece, to: Vector3, coord: String):
-	for child in get_children():
-		if child is PlayerPiece:
-			if child.get_instance_id() == piece.get_instance_id():
-				child.move_to(to, coord)
 
 func get_allowed_moves(piece_type: GlobalEnums.PieceType, current_cell: String, board_data: Dictionary) -> Array[String]:
 	match piece_type:
@@ -116,8 +112,8 @@ func _get_pawn_moves(current_cell: String, board_data: Dictionary) -> Array[Stri
 			moves.append(two_step)
 
 	for dx in [-1, 1]:
-		var diag := GameState.board.coords_to_cell(origin + Vector2i(dx, 1))
-		if diag != "" and board_data.has(diag) and not board_data[diag].is_occupied_by_player:
-			moves.append(diag)
+		var diagonal := GameState.board.coords_to_cell(origin + Vector2i(dx, 1))
+		if diagonal != "" and board_data.has(diagonal) and not board_data[diagonal].is_occupied_by_player:
+			moves.append(diagonal)
 
 	return moves

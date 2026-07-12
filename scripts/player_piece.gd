@@ -27,6 +27,7 @@ func move_to(target: Vector3, target_board_tile: String, duration: float = 0.2) 
 	)
 
 func on_move_finished(coord: String):
+	GameState.change_state(GameState.State.ENEMY_TURN)
 	current_cell = coord
 
 func _input_event(_camera, event, _position, _normal, _shape_idx) -> void:
