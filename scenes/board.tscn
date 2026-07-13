@@ -2390,7 +2390,7 @@ shape = SubResource("BoxShape3D_n1au0")
 [node name="Area3Dd6" type="Area3D" parent="." index="30" unique_id=902983761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0.05, 0.125)
 script = ExtResource("2_lixwu")
-coord = "e4"
+coord = "f4"
 
 [node name="Cube_029" type="MeshInstance3D" parent="Area3Dd6" index="0" unique_id=571937713]
 mesh = SubResource("ArrayMesh_ptkru")
@@ -2771,3 +2771,195 @@ mesh = SubResource("ArrayMesh_1cu4e")
 
 [node name="CollisionShape3Dh8" type="CollisionShape3D" parent="Area3Dh8" index="1" unique_id=533317804]
 shape = SubResource("BoxShape3D_n1au0")
+
+[node name="Cube" parent="." index="65" unique_id=1490326596]
+visible = false
+
+[node name="Cube_001" parent="." index="66" unique_id=944090323]
+visible = false
+
+[node name="Cube_002" parent="." index="67" unique_id=1625261231]
+visible = false
+
+[node name="Cube_003" parent="." index="68" unique_id=1979404774]
+visible = false
+
+[node name="Cube_004" parent="." index="69" unique_id=439413544]
+visible = false
+
+[node name="Cube_005" parent="." index="70" unique_id=1237278074]
+visible = false
+
+[node name="Cube_006" parent="." index="71" unique_id=743308311]
+visible = false
+
+[node name="Cube_007" parent="." index="72" unique_id=730549807]
+visible = false
+
+[node name="Cube_008" parent="." index="73" unique_id=693065261]
+visible = false
+
+[node name="Cube_009" parent="." index="74" unique_id=870011555]
+visible = false
+
+[node name="Cube_010" parent="." index="75" unique_id=1593700982]
+visible = false
+
+[node name="Cube_011" parent="." index="76" unique_id=1386761226]
+visible = false
+
+[node name="Cube_012" parent="." index="77" unique_id=634282894]
+visible = false
+
+[node name="Cube_013" parent="." index="78" unique_id=1414087788]
+visible = false
+
+[node name="Cube_014" parent="." index="79" unique_id=1544149739]
+visible = false
+
+[node name="Cube_015" parent="." index="80" unique_id=1690844945]
+visible = false
+
+[node name="Cube_016" parent="." index="81" unique_id=1751481581]
+visible = false
+
+[node name="Cube_017" parent="." index="82" unique_id=720459939]
+visible = false
+
+[node name="Cube_018" parent="." index="83" unique_id=35892369]
+visible = false
+
+[node name="Cube_019" parent="." index="84" unique_id=1039633205]
+visible = false
+
+[node name="Cube_020" parent="." index="85" unique_id=764716676]
+visible = false
+
+[node name="Cube_021" parent="." index="86" unique_id=973975355]
+visible = false
+
+[node name="Cube_022" parent="." index="87" unique_id=1053882160]
+visible = false
+
+[node name="Cube_023" parent="." index="88" unique_id=731564746]
+visible = false
+
+[node name="Cube_024" parent="." index="89" unique_id=1445773834]
+visible = false
+
+[node name="Cube_025" parent="." index="90" unique_id=1215478042]
+visible = false
+
+[node name="Cube_026" parent="." index="91" unique_id=1839410342]
+visible = false
+
+[node name="Cube_027" parent="." index="92" unique_id=1541717432]
+visible = false
+
+[node name="Cube_028" parent="." index="93" unique_id=1315428479]
+visible = false
+
+[node name="Cube_029" parent="." index="94" unique_id=571937713]
+visible = false
+
+[node name="Cube_030" parent="." index="95" unique_id=350773322]
+visible = false
+
+[node name="Cube_031" parent="." index="96" unique_id=687739837]
+visible = false
+
+[node name="Cube_032" parent="." index="97" unique_id=315215962]
+visible = false
+
+[node name="Cube_033" parent="." index="98" unique_id=437556145]
+visible = false
+
+[node name="Cube_034" parent="." index="99" unique_id=1375507658]
+visible = false
+
+[node name="Cube_035" parent="." index="100" unique_id=1681785900]
+visible = false
+
+[node name="Cube_036" parent="." index="101" unique_id=982138952]
+visible = false
+
+[node name="Cube_037" parent="." index="102" unique_id=354078093]
+visible = false
+
+[node name="Cube_038" parent="." index="103" unique_id=2141602535]
+visible = false
+
+[node name="Cube_039" parent="." index="104" unique_id=1556256211]
+visible = false
+
+[node name="Cube_040" parent="." index="105" unique_id=680256505]
+visible = false
+
+[node name="Cube_041" parent="." index="106" unique_id=325044824]
+visible = false
+
+[node name="Cube_042" parent="." index="107" unique_id=1322227229]
+visible = false
+
+[node name="Cube_043" parent="." index="108" unique_id=1688338592]
+visible = false
+
+[node name="Cube_044" parent="." index="109" unique_id=588216503]
+visible = false
+
+[node name="Cube_045" parent="." index="110" unique_id=1941943126]
+visible = false
+
+[node name="Cube_046" parent="." index="111" unique_id=441986339]
+visible = false
+
+[node name="Cube_047" parent="." index="112" unique_id=211025965]
+visible = false
+
+[node name="Cube_048" parent="." index="113" unique_id=1154759941]
+visible = false
+
+[node name="Cube_049" parent="." index="114" unique_id=271305888]
+visible = false
+
+[node name="Cube_050" parent="." index="115" unique_id=973361173]
+visible = false
+
+[node name="Cube_051" parent="." index="116" unique_id=748916661]
+visible = false
+
+[node name="Cube_052" parent="." index="117" unique_id=327132999]
+visible = false
+
+[node name="Cube_053" parent="." index="118" unique_id=592670932]
+visible = false
+
+[node name="Cube_054" parent="." index="119" unique_id=1426245628]
+visible = false
+
+[node name="Cube_055" parent="." index="120" unique_id=1089336194]
+visible = false
+
+[node name="Cube_056" parent="." index="121" unique_id=1850969672]
+visible = false
+
+[node name="Cube_057" parent="." index="122" unique_id=1759872836]
+visible = false
+
+[node name="Cube_058" parent="." index="123" unique_id=795785289]
+visible = false
+
+[node name="Cube_059" parent="." index="124" unique_id=1695328697]
+visible = false
+
+[node name="Cube_060" parent="." index="125" unique_id=725341284]
+visible = false
+
+[node name="Cube_061" parent="." index="126" unique_id=683031915]
+visible = false
+
+[node name="Cube_062" parent="." index="127" unique_id=997374322]
+visible = false
+
+[node name="Cube_063" parent="." index="128" unique_id=1051107847]
+visible = false

@@ -6,7 +6,7 @@ var piece_type: int
 var move_tween: Tween
 
 func _ready() -> void:
-	current_cell = GameState.board.get_nearest_tile(global_position)
+	current_cell = GameState.board.get_nearest_tile(position)
 
 func move_to(target: Vector3, target_board_tile: String, duration: float = 0.2) -> void:
 	# Make sure vertical position is not changed

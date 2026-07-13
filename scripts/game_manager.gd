@@ -2,30 +2,60 @@ extends Node3D
 
 @onready var board = $Board
 
+@export var pawn_to_deploy: PackedScene
 var active_piece: Area3D
 var allowed_moves: Array[String]
 
 func _ready() -> void:
 	for child in get_children():
 		if child is PlayerPiece:
-			child.piece_selected.connect(_on_piece_selected)
-			board.update_board_data(child.current_cell, child.current_cell, child, true)
+			_init_player_piece(child)
 	for child in board.get_children():
 		if child is Tile:
 			child.clicked.connect(_on_tile_selected)
 
+func _init_player_piece(player_piece: PlayerPiece):
+	player_piece.piece_selected.connect(_on_piece_selected)
+	board.update_board_data(player_piece.current_cell, player_piece.current_cell, player_piece, true)
+
 func _on_tile_selected(_tile: Tile, coord: String):
 	if GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION:
-		if allowed_moves.has(coord):
-			if board.board_data.has(coord) and not board.board_data[coord].is_occupied_by_player:
-				board.board_data[coord].piece.handle_getting_captured()
+		_handle_tile_piece_target(coord)
+	elif GameState.current_state == GameState.State.INITIAL_DEPLOY:
+		_handle_initial_pawn_deploy(coord)
 
-			board.update_board_data(active_piece.current_cell, coord, active_piece, true)
-			active_piece.move_to(board.board_coordinates[coord], coord)
+func _handle_tile_piece_target(coord):
+	if allowed_moves.has(coord):
+		if board.board_data.has(coord) and not board.board_data[coord].is_occupied_by_player:
+			board.board_data[coord].piece.handle_getting_captured()
 
-		active_piece = null
-		allowed_moves = []
-		GameState.change_state(GameState.State.PLAYER_PIECE_MOVING)
+		board.update_board_data(active_piece.current_cell, coord, active_piece, true)
+		active_piece.move_to(board.board_coordinates[coord], coord)
+
+	active_piece = null
+	allowed_moves = []
+	GameState.change_state(GameState.State.PLAYER_PIECE_MOVING)
+
+func _handle_initial_pawn_deploy(coord):
+	if coord[1] != "1" and coord[1] != "2":
+		print("The row must be 1 or 2")
+		return
+	
+	if GameState.points <= 0:
+		print("Not enough points")
+		return
+	
+	if board.board_data.has(coord):
+		print("Cell is occupied")
+		return
+
+	var instance := pawn_to_deploy.instantiate()
+	var selected_cell_coordinates := GameState.board.board_coordinates[coord]
+	selected_cell_coordinates.y = 0.227 # Ideal pawn y coord, TODO: Store somewhere else
+	instance.position = selected_cell_coordinates
+	add_child(instance)
+	_init_player_piece(instance)
+	GameState.edit_points(-1)
 
 func _on_piece_selected(piece: Area3D) -> void:
 	if GameState.current_state == GameState.State.WAITING_FOR_PIECE_SELECTION:

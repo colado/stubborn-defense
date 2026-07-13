@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cqfxjorprq6v4"]
+
+[ext_resource type="Script" uid="uid://bobbfj1rctl2y" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1474713042]
+script = ExtResource("1_ahhtf")
+
+[node name="StartButton" type="Button" parent="." unique_id=305376512]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 36
+text = "FINISH DEPLOYMENTS"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

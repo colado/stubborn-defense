@@ -1,15 +1,18 @@
 extends Node
 
 enum State {
+	INITIAL_DEPLOY,
 	WAITING_FOR_PIECE_SELECTION,
 	WAITING_FOR_TILE_SELECTION,
 	PLAYER_PIECE_MOVING,
-	ENEMY_TURN
+	ENEMY_TURN,
+	BETWEEN_SETS
 }
 
 signal state_changed(old_state: State, new_state: State)
 
-var current_state: State = State.WAITING_FOR_PIECE_SELECTION
+var current_state := State.INITIAL_DEPLOY
+var points: = 6
 var board: Board = null
 
 func change_state(new_state: State) -> void:
@@ -17,3 +20,6 @@ func change_state(new_state: State) -> void:
 	current_state = new_state
 	state_changed.emit(old_state, new_state)
 	print("State: %s -> %s" % [State.keys()[old_state], State.keys()[new_state]])
+
+func edit_points(points_to_change: int):
+	points += points_to_change

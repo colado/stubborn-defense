@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cy7fb1ot1i6hg" path="res://scenes/board.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ba8751y4e1mof" path="res://scenes/pieces/red_pawn.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://dnb2vtn2f3emo" path="res://scripts/board.gd" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cqfxjorprq6v4" path="res://scenes/hud.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://btth6yaf8uip5" path="res://scenes/pieces/black_pawn.tscn" id="10_choun"]
 [ext_resource type="Script" uid="uid://b0c1742yady1x" path="res://scripts/enemy_controller.gd" id="10_eb6dy"]
 [ext_resource type="Script" uid="uid://bvqp24p5k3qtl" path="res://scripts/pieces/en_pawn.gd" id="12_trceg"]
@@ -27,6 +28,7 @@ ambient_light_energy = 0.8
 
 [node name="Main" type="Node3D" unique_id=105329689]
 script = ExtResource("1_jyhfs")
+pawn_to_deploy = ExtResource("3_sugp2")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1647190522]
 transform = Transform3D(0.7071068, -0.40860704, 0.5770964, 0, 0.8161376, 0.5778576, -0.7071068, -0.40860704, 0.5770964, 1.1893165, 1.2605594, 1.1991501)
@@ -45,12 +47,6 @@ shadow_enabled = true
 [node name="Board" parent="." unique_id=499651688 instance=ExtResource("3_jyhfs")]
 script = ExtResource("3_tbgi4")
 
-[node name="RedPawn" parent="." unique_id=1429753465 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.382, 0.22220396, 0.627)
-
-[node name="RedPawn2" parent="." unique_id=1764646859 instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128, 0.22687714, 0.629)
-
 [node name="RedKing" parent="." unique_id=1647727869 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13724422, 0.2715315, 0.8778675)
 
@@ -60,3 +56,5 @@ script = ExtResource("10_eb6dy")
 [node name="BlackPawn" parent="EnemyController" unique_id=378577358 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10972822, 0.19786525, -0.59969354)
 script = ExtResource("12_trceg")
+
+[node name="Hud" parent="." unique_id=1474713042 instance=ExtResource("9_85g3d")]
