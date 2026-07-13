@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bnt1jov3hsk4r"]
+
+[ext_resource type="Script" uid="uid://o8c4hmgrkasw" path="res://scripts/start_scene.gd" id="1_cokmr"]
+
+[node name="StartScene" type="Control" unique_id=1771943386]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cokmr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1524698992]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1920.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=875358791]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1920.0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=546673413]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer" unique_id=790067470]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "THE STUBBORN DEFENSE"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=218794474]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "START GAME"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=550311466]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "QUIT GAME"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
