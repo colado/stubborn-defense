@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var board = $Board
+@onready var enemy_controller = $EnemyController
 
 @export var pawn_to_deploy: PackedScene
 var active_piece: Area3D
@@ -13,6 +14,12 @@ func _ready() -> void:
 	for child in board.get_children():
 		if child is Tile:
 			child.clicked.connect(_on_tile_selected)
+	
+	GameState.state_changed.connect(_on_state_changed)
+
+func _on_state_changed(_old_state: GameState.State, new_state: GameState.State):
+	if new_state == GameState.State.DEPLOYING_ENEMIES:
+		enemy_controller.deploy_enemies()
 
 func _init_player_piece(player_piece: PlayerPiece):
 	player_piece.piece_selected.connect(_on_piece_selected)

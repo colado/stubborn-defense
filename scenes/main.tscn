@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cqfxjorprq6v4" path="res://scenes/hud.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://btth6yaf8uip5" path="res://scenes/pieces/black_pawn.tscn" id="10_choun"]
 [ext_resource type="Script" uid="uid://b0c1742yady1x" path="res://scripts/enemy_controller.gd" id="10_eb6dy"]
-[ext_resource type="Script" uid="uid://bvqp24p5k3qtl" path="res://scripts/pieces/en_pawn.gd" id="12_trceg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 
@@ -52,9 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13724422, 0.2715315, 0.877
 
 [node name="EnemyController" type="Node3D" parent="." unique_id=524614671]
 script = ExtResource("10_eb6dy")
-
-[node name="BlackPawn" parent="EnemyController" unique_id=378577358 instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10972822, 0.19786525, -0.59969354)
-script = ExtResource("12_trceg")
+en_pawn_to_deploy = ExtResource("10_choun")
 
 [node name="Hud" parent="." unique_id=1474713042 instance=ExtResource("9_85g3d")]

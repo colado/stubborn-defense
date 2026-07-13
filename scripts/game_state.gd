@@ -2,6 +2,7 @@ extends Node
 
 enum State {
 	INITIAL_DEPLOY,
+	DEPLOYING_ENEMIES,
 	WAITING_FOR_PIECE_SELECTION,
 	WAITING_FOR_TILE_SELECTION,
 	PLAYER_PIECE_MOVING,
@@ -12,6 +13,7 @@ enum State {
 signal state_changed(old_state: State, new_state: State)
 
 var current_state := State.INITIAL_DEPLOY
+var current_set := 1
 var points: = 6
 var board: Board = null
 
