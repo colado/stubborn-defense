@@ -23,13 +23,21 @@ func _on_state_changed(_old_state: GameState.State, new_state: GameState.State):
 
 func _init_player_piece(player_piece: PlayerPiece):
 	player_piece.piece_selected.connect(_on_piece_selected)
+	player_piece.player_piece_finished_move.connect(_on_player_piece_finished_move)
 	board.update_board_data(player_piece.current_cell, player_piece.current_cell, player_piece, true)
+
+func _on_player_piece_finished_move():
+	if enemy_controller.get_children().size() == 0:  # Will need to be refactored in the future, since capture animations could take longer and this could return false
+		GameState.change_state(GameState.State.BETWEEN_SETS)
+		GameState.change_set()
+	else:
+		GameState.change_state(GameState.State.ENEMY_TURN)
 
 func _on_tile_selected(_tile: Tile, coord: String):
 	if GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION:
 		_handle_tile_piece_target(coord)
-	elif GameState.current_state == GameState.State.INITIAL_DEPLOY:
-		_handle_initial_pawn_deploy(coord)
+	elif GameState.current_state == GameState.State.INITIAL_DEPLOY or GameState.current_state == GameState.State.BETWEEN_SETS:
+		_handle_player_pawn_deploy(coord)
 
 func _handle_tile_piece_target(coord):
 	if allowed_moves.has(coord):
@@ -38,12 +46,11 @@ func _handle_tile_piece_target(coord):
 
 		board.update_board_data(active_piece.current_cell, coord, active_piece, true)
 		active_piece.move_to(board.board_coordinates[coord], coord)
+		active_piece = null
+		allowed_moves = []
+		GameState.change_state(GameState.State.PLAYER_PIECE_MOVING)
 
-	active_piece = null
-	allowed_moves = []
-	GameState.change_state(GameState.State.PLAYER_PIECE_MOVING)
-
-func _handle_initial_pawn_deploy(coord):
+func _handle_player_pawn_deploy(coord):
 	if coord[1] != "1" and coord[1] != "2":
 		print("The row must be 1 or 2")
 		return

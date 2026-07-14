@@ -14,7 +14,7 @@ signal state_changed(old_state: State, new_state: State)
 
 var current_state := State.INITIAL_DEPLOY
 var current_set := 1
-var points: = 6
+var points: = 100
 var board: Board = null
 
 func change_state(new_state: State) -> void:
@@ -25,3 +25,6 @@ func change_state(new_state: State) -> void:
 
 func edit_points(points_to_change: int):
 	points += points_to_change
+
+func change_set(plus = 1):
+	current_set += plus

@@ -28,6 +28,8 @@ func _on_piece_move_finished(_piece: Node) -> void:
 	if _pieces_remaining <= 0:
 		_on_all_pieces_done()
 
+func _init_enemy_piece(piece: EnemyPiece):
+	GameState.board.update_board_data(piece.current_cell, piece.current_cell, piece, false)
 
 func _on_all_pieces_done() -> void:
 	GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
@@ -41,7 +43,7 @@ func deploy_enemies():
 		selected_cell_coordinates.y = 0.198 # Ideal en_pawn y coord, TODO: Store somewhere else
 		instance.position = selected_cell_coordinates
 		add_child(instance)
-		GameState.board.update_board_data(instance.current_cell, instance.current_cell, instance, false)
+		_init_enemy_piece(instance)
 	GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
 
 func _get_random_deployment_cells() -> Array[String]:
