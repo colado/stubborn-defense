@@ -16,10 +16,28 @@ func _ready() -> void:
 			child.clicked.connect(_on_tile_selected)
 	
 	GameState.state_changed.connect(_on_state_changed)
+	GameState.turns_left_changed.connect(_on_turns_left_changed)
+	GameState.moves_left_changed.connect(_on_moves_left_changed)
 
 func _on_state_changed(_old_state: GameState.State, new_state: GameState.State):
 	if new_state == GameState.State.DEPLOYING_ENEMIES:
 		enemy_controller.deploy_enemies()
+
+func _on_turns_left_changed(turns_left: int):
+	if GameState.current_state != GameState.State.BETWEEN_SETS:
+		if turns_left == 0:
+			GameState.change_state(GameState.State.BETWEEN_SETS)
+			GameState.reset_moves_and_turns()
+		else:
+			GameState.update_moves_left(1)
+			GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
+
+func _on_moves_left_changed(moves_left: int):
+	if GameState.current_state != GameState.State.BETWEEN_SETS:
+		if moves_left == 0:
+			GameState.change_state(GameState.State.ENEMY_TURN)
+		else:
+			GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
 
 func _init_player_piece(player_piece: PlayerPiece):
 	player_piece.piece_selected.connect(_on_piece_selected)
@@ -31,7 +49,7 @@ func _on_player_piece_finished_move():
 		GameState.change_state(GameState.State.BETWEEN_SETS)
 		GameState.change_set()
 	else:
-		GameState.change_state(GameState.State.ENEMY_TURN)
+		GameState.update_moves_left()
 
 func _on_tile_selected(_tile: Tile, coord: String):
 	if GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION:

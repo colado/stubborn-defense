@@ -5,10 +5,73 @@
 [node name="Hud" type="CanvasLayer" unique_id=1474713042]
 script = ExtResource("1_ahhtf")
 
-[node name="StartButton" type="Button" parent="." unique_id=305376512]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="PawnDeploymentControl" type="Control" parent="." unique_id=254036196]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 500.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PawnDeploymentControl" unique_id=2134312010]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 500.0
+alignment = 1
+
+[node name="StartButton" type="Button" parent="PawnDeploymentControl/VBoxContainer" unique_id=305376512]
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "FINISH DEPLOYMENTS"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="InGameControl" type="Control" parent="." unique_id=96105131]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InGameControl" unique_id=1941999475]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TurnsLeftLabel" type="Label" parent="InGameControl/VBoxContainer" unique_id=1405829940]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+
+[node name="MovesLeftLabel" type="Label" parent="InGameControl/VBoxContainer" unique_id=17546273]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+
+[node name="PromotionControl" type="Control" parent="." unique_id=270521154]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PromotionControl" unique_id=678876523]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 500.0
+
+[node name="BishopOption" type="Button" parent="PromotionControl/VBoxContainer" unique_id=712358276]
+layout_mode = 2
+text = "BISHOP"
+
+[node name="KnightOption" type="Button" parent="PromotionControl/VBoxContainer" unique_id=823875189]
+layout_mode = 2
+text = "KNIGHT"
+
+[node name="RookOption" type="Button" parent="PromotionControl/VBoxContainer" unique_id=1567641227]
+layout_mode = 2
+text = "ROOK"
+
+[node name="QueenOption" type="Button" parent="PromotionControl/VBoxContainer" unique_id=1580559517]
+layout_mode = 2
+text = "QUEEN"
+
+[node name="UpgradesControl" type="Control" parent="." unique_id=524127220]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 500.0
+
+[connection signal="pressed" from="PawnDeploymentControl/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

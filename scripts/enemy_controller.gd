@@ -32,7 +32,7 @@ func _init_enemy_piece(piece: EnemyPiece):
 	GameState.board.update_board_data(piece.current_cell, piece.current_cell, piece, false)
 
 func _on_all_pieces_done() -> void:
-	GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
+	GameState.update_turns_left()
 
 func deploy_enemies():
 	var cells_to_deploy := _get_random_deployment_cells()
