@@ -47,11 +47,16 @@ func deploy_enemies():
 	GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
 
 func _get_random_deployment_cells() -> Array[String]:
+	# TODO: Handle less cells to deploy than cells available in specified cells
 	var cells_to_deploy: Array[String] = []
 
 	for file in GameState.board.FILES:
 		for rank in [7, 8]:
-			cells_to_deploy.append(file + str(rank))
+			var cell: String = file + str(rank)
+			if (GameState.board.board_data.has(cell)):
+				continue
+			else:
+				cells_to_deploy.append(file + str(rank))
 	
 	cells_to_deploy.shuffle()
 

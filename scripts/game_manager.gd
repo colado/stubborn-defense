@@ -26,6 +26,7 @@ func _on_state_changed(_old_state: GameState.State, new_state: GameState.State):
 func _on_turns_left_changed(turns_left: int):
 	if GameState.current_state != GameState.State.BETWEEN_SETS:
 		if turns_left == 0:
+			GameState.change_set()
 			GameState.change_state(GameState.State.BETWEEN_SETS)
 			GameState.reset_moves_and_turns()
 		else:
@@ -33,11 +34,12 @@ func _on_turns_left_changed(turns_left: int):
 			GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
 
 func _on_moves_left_changed(moves_left: int):
-	if GameState.current_state != GameState.State.BETWEEN_SETS:
-		if moves_left == 0:
-			GameState.change_state(GameState.State.ENEMY_TURN)
-		else:
-			GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
+	if enemy_controller.get_children().size() == 0: # Possibly problematic, as this might return more than 0 if queue_free takes longer than expected, TODO: Create a local variable in enemy_controller that represents number of enemies left
+		GameState.change_state(GameState.State.BETWEEN_SETS)
+	elif moves_left == 0:
+		GameState.change_state(GameState.State.ENEMY_TURN)
+	else:
+		GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
 
 func _init_player_piece(player_piece: PlayerPiece):
 	player_piece.piece_selected.connect(_on_piece_selected)
@@ -45,11 +47,7 @@ func _init_player_piece(player_piece: PlayerPiece):
 	board.update_board_data(player_piece.current_cell, player_piece.current_cell, player_piece, true)
 
 func _on_player_piece_finished_move():
-	if enemy_controller.get_children().size() == 0:  # Will need to be refactored in the future, since capture animations could take longer and this could return false
-		GameState.change_state(GameState.State.BETWEEN_SETS)
-		GameState.change_set()
-	else:
-		GameState.update_moves_left()
+	GameState.update_moves_left()
 
 func _on_tile_selected(_tile: Tile, coord: String):
 	if GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION:
@@ -90,7 +88,7 @@ func _handle_player_pawn_deploy(coord):
 	GameState.edit_points(-1)
 
 func _on_piece_selected(piece: Area3D) -> void:
-	if GameState.current_state == GameState.State.WAITING_FOR_PIECE_SELECTION:
+	if GameState.current_state == GameState.State.WAITING_FOR_PIECE_SELECTION or GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION: # also adding TILE_SELECTION in case of wrongly selected piece
 		active_piece = piece
 		allowed_moves = get_allowed_moves(piece.piece_type, piece.current_cell, board.board_data)
 		GameState.change_state(GameState.State.WAITING_FOR_TILE_SELECTION)
