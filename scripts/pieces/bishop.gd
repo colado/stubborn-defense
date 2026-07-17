@@ -1,4 +1,4 @@
 extends PlayerPiece
 
 func _init() -> void:
-    piece_type = GlobalEnums.PieceType.BISHOP
+    piece_type = GlobalVars.PieceType.BISHOP

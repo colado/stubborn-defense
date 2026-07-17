@@ -40,7 +40,7 @@ func deploy_enemies():
 	for cell in cells_to_deploy:
 		var instance := en_pawn_to_deploy.instantiate()
 		var selected_cell_coordinates := GameState.board.board_coordinates[cell]
-		selected_cell_coordinates.y = 0.198 # Ideal en_pawn y coord, TODO: Store somewhere else
+		selected_cell_coordinates.y = GlobalVars.EN_PAWN_HEIGHT
 		instance.position = selected_cell_coordinates
 		add_child(instance)
 		_init_enemy_piece(instance)

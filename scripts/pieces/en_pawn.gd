@@ -4,7 +4,7 @@ var has_moved: bool = false
 var _pending_on_complete: Callable
 
 func _init() -> void:
-	piece_type = GlobalEnums.PieceType.EN_PAWN
+	piece_type = GlobalVars.PieceType.EN_PAWN
 
 func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
 	var origin := GameState.board.cell_to_coords(current_cell)

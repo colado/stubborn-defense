@@ -2,10 +2,15 @@ extends Node3D
 
 @onready var board = $Board
 @onready var enemy_controller = $EnemyController
+@onready var hud = $Hud
 
 @export var pawn_to_deploy: PackedScene
 var active_piece: Area3D
 var allowed_moves: Array[String]
+var bishop_to_promote := preload(("res://scenes/pieces/red_bishop.tscn"))
+var knight_to_promote := preload(("res://scenes/pieces/red_knight.tscn"))
+var rook_to_promote := preload(("res://scenes/pieces/red_rook.tscn"))
+var queen_to_promote := preload(("res://scenes/pieces/red_queen.tscn"))
 
 func _ready() -> void:
 	for child in get_children():
@@ -18,6 +23,7 @@ func _ready() -> void:
 	GameState.state_changed.connect(_on_state_changed)
 	GameState.turns_left_changed.connect(_on_turns_left_changed)
 	GameState.moves_left_changed.connect(_on_moves_left_changed)
+	hud.promotion_selected.connect(_on_promotion_selected)
 
 func _on_state_changed(_old_state: GameState.State, new_state: GameState.State):
 	if new_state == GameState.State.DEPLOYING_ENEMIES:
@@ -41,13 +47,56 @@ func _on_moves_left_changed(moves_left: int):
 	else:
 		GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
 
+func _on_promotion_selected(piece: GlobalVars.PieceType):
+	var piece_to_promote: PackedScene
+	var promotion_position = active_piece.position
+	var promotion_current_cell = active_piece.current_cell
+
+	if piece == GlobalVars.PieceType.BISHOP:
+		piece_to_promote = bishop_to_promote
+		promotion_position.y = GlobalVars.BISHOP_HEIGHT
+		GameState.edit_points(-3)
+	elif piece == GlobalVars.PieceType.KNIGHT:
+		piece_to_promote = knight_to_promote
+		promotion_position.y = GlobalVars.KNIGHT_HEIGHT
+		GameState.edit_points(-3)
+	elif piece == GlobalVars.PieceType.ROOK:
+		piece_to_promote = rook_to_promote
+		promotion_position.y = GlobalVars.ROOK_HEIGHT
+		GameState.edit_points(-5)
+	elif piece == GlobalVars.PieceType.QUEEN:
+		piece_to_promote = queen_to_promote
+		promotion_position.y = GlobalVars.QUEEN_HEIGHT
+		GameState.edit_points(-9)
+
+	active_piece.queue_free()
+	board.board_data.erase(promotion_current_cell)
+	
+	var new_piece := piece_to_promote.instantiate() as PlayerPiece
+	new_piece.position = promotion_position
+	new_piece.current_cell = promotion_current_cell
+	add_child(new_piece)
+	_init_player_piece(new_piece)
+
+	_reset_active_piece()
+
+
 func _init_player_piece(player_piece: PlayerPiece):
 	player_piece.piece_selected.connect(_on_piece_selected)
 	player_piece.player_piece_finished_move.connect(_on_player_piece_finished_move)
 	board.update_board_data(player_piece.current_cell, player_piece.current_cell, player_piece, true)
 
-func _on_player_piece_finished_move():
+func _on_player_piece_finished_move(cell: String):
+	if cell[1] == "8":
+		GameState.change_state(GameState.State.PROMOTING_PAWN)
+	else:
+		_reset_active_piece()
+
+func _reset_active_piece():
+	active_piece = null
+	allowed_moves = []
 	GameState.update_moves_left()
+
 
 func _on_tile_selected(_tile: Tile, coord: String):
 	if GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION:
@@ -62,8 +111,6 @@ func _handle_tile_piece_target(coord):
 
 		board.update_board_data(active_piece.current_cell, coord, active_piece, true)
 		active_piece.move_to(board.board_coordinates[coord], coord)
-		active_piece = null
-		allowed_moves = []
 		GameState.change_state(GameState.State.PLAYER_PIECE_MOVING)
 
 func _handle_player_pawn_deploy(coord):
@@ -81,7 +128,7 @@ func _handle_player_pawn_deploy(coord):
 
 	var instance := pawn_to_deploy.instantiate()
 	var selected_cell_coordinates := GameState.board.board_coordinates[coord]
-	selected_cell_coordinates.y = 0.227 # Ideal pawn y coord, TODO: Store somewhere else
+	selected_cell_coordinates.y = GlobalVars.PAWN_HEIGHT
 	instance.position = selected_cell_coordinates
 	add_child(instance)
 	_init_player_piece(instance)
@@ -93,22 +140,22 @@ func _on_piece_selected(piece: Area3D) -> void:
 		allowed_moves = get_allowed_moves(piece.piece_type, piece.current_cell, board.board_data)
 		GameState.change_state(GameState.State.WAITING_FOR_TILE_SELECTION)
 
-func get_allowed_moves(piece_type: GlobalEnums.PieceType, current_cell: String, board_data: Dictionary) -> Array[String]:
+func get_allowed_moves(piece_type: GlobalVars.PieceType, current_cell: String, board_data: Dictionary) -> Array[String]:
 	match piece_type:
-		GlobalEnums.PieceType.PAWN:
+		GlobalVars.PieceType.PAWN:
 			return _get_pawn_moves(current_cell, board_data)
-		GlobalEnums.PieceType.KNIGHT:
+		GlobalVars.PieceType.KNIGHT:
 			return _get_knight_moves(current_cell, board_data)
-		GlobalEnums.PieceType.BISHOP:
+		GlobalVars.PieceType.BISHOP:
 			return _get_sliding_moves(current_cell, board_data, [Vector2i(1, 1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(-1, -1)])
-		GlobalEnums.PieceType.ROOK:
+		GlobalVars.PieceType.ROOK:
 			return _get_sliding_moves(current_cell, board_data, [Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0)])
-		GlobalEnums.PieceType.QUEEN:
+		GlobalVars.PieceType.QUEEN:
 			return _get_sliding_moves(current_cell, board_data, [
 				Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 0), Vector2i(-1, 0),
 				Vector2i(1, 1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(-1, -1)
 			])
-		GlobalEnums.PieceType.KING:
+		GlobalVars.PieceType.KING:
 			return _get_king_moves(current_cell, board_data)
 	return []
 
