@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cy7fb1ot1i6hg" path="res://scenes/board.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ba8751y4e1mof" path="res://scenes/pieces/red_pawn.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://dnb2vtn2f3emo" path="res://scripts/board.gd" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://wk0d2gdgwitd" path="res://scenes/pieces/black_queen.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cqfxjorprq6v4" path="res://scenes/hud.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://btth6yaf8uip5" path="res://scenes/pieces/black_pawn.tscn" id="10_choun"]
 [ext_resource type="Script" uid="uid://b0c1742yady1x" path="res://scripts/enemy_controller.gd" id="10_eb6dy"]
@@ -52,5 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13724422, 0.2715315, 0.877
 [node name="EnemyController" type="Node3D" parent="." unique_id=524614671]
 script = ExtResource("10_eb6dy")
 en_pawn_to_deploy = ExtResource("10_choun")
+en_queen_to_deploy = ExtResource("8_85g3d")
 
 [node name="Hud" parent="." unique_id=1474713042 instance=ExtResource("9_85g3d")]

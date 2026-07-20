@@ -1,6 +1,9 @@
 extends EnemyPiece
+class_name EnPawn
 
-var has_moved: bool = false
+signal en_pawn_being_promoted(en_pawn: EnPawn)
+
+var _has_moved: bool = false
 var _pending_on_complete: Callable
 
 func _init() -> void:
@@ -24,7 +27,7 @@ func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
 		var one_step := GameState.board.coords_to_cell(origin + forward)
 		var one_step_free := one_step != "" and not board_data.has(one_step)
 
-		if not has_moved and one_step_free:
+		if not _has_moved and one_step_free:
 			var two_step := GameState.board.coords_to_cell(origin + forward * 2)
 			var two_step_free := two_step != "" and not board_data.has(two_step)
 
@@ -41,7 +44,7 @@ func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
 		return
 
 	_pending_on_complete = on_complete
-	has_moved = true
+	_has_moved = true
 
 	if GameState.board.board_data.has(chosen_cell) and GameState.board.board_data[chosen_cell].is_occupied_by_player:
 		GameState.board.board_data[chosen_cell].piece.handle_getting_captured()
@@ -50,6 +53,8 @@ func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
 
 
 func on_move_finished(target_board_cell: String) -> void:
+	if target_board_cell[1] == "1":
+		en_pawn_being_promoted.emit(self)
 	super.on_move_finished(target_board_cell)
 	if _pending_on_complete.is_valid():
 		_pending_on_complete.call(self)

@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var en_pawn_to_deploy: PackedScene
+@export var en_queen_to_deploy: PackedScene
 var _pieces_remaining: int = 0
 
 func _ready() -> void:
@@ -30,6 +31,23 @@ func _on_piece_move_finished(_piece: Node) -> void:
 
 func _init_enemy_piece(piece: EnemyPiece):
 	GameState.board.update_board_data(piece.current_cell, piece.current_cell, piece, false)
+	if piece is EnPawn:
+		piece.en_pawn_being_promoted.connect(_on_en_pawn_being_promoted)
+
+func _on_en_pawn_being_promoted(en_pawn: EnPawn):
+	var queen_position = en_pawn.position
+	var cell = en_pawn.current_cell
+	queen_position.y = GlobalVars.EN_QUEEN_HEIGHT
+
+	GameState.board.board_data.erase(en_pawn.current_cell)
+	en_pawn.queue_free()
+
+	var queen := en_queen_to_deploy.instantiate() as EnemyPiece
+	queen.position = queen_position
+	queen.current_cell = cell
+	add_child(queen)
+	_init_enemy_piece(queen)
+
 
 func _on_all_pieces_done() -> void:
 	GameState.update_turns_left()
