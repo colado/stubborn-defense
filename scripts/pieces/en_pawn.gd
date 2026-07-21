@@ -5,9 +5,22 @@ signal en_pawn_being_promoted(en_pawn: EnPawn)
 
 var _has_moved: bool = false
 var _pending_on_complete: Callable
+var _capturing_cell = ""
 
 func _init() -> void:
 	piece_type = GlobalVars.PieceType.EN_PAWN
+
+func get_capturing_cell(excluded_cells: Array[String]) -> String:
+	var origin := GameState.board.cell_to_coords(current_cell)
+
+	# 1. check captures first
+	for dx in [-1, 1]:
+		var diagonal := GameState.board.coords_to_cell(origin + Vector2i(dx, -1))
+		if diagonal != "" and GameState.board.board_data.has(diagonal) and GameState.board.board_data[diagonal].is_occupied_by_player and not excluded_cells.has(diagonal):
+			_capturing_cell = diagonal
+			break
+	
+	return _capturing_cell
 
 func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
 	var origin := GameState.board.cell_to_coords(current_cell)
@@ -16,11 +29,8 @@ func handle_move(board_data: Dictionary, on_complete: Callable) -> void:
 	var chosen_cell := ""
 
 	# 1. check captures first
-	for dx in [-1, 1]:
-		var diagonal := GameState.board.coords_to_cell(origin + Vector2i(dx, -1))
-		if diagonal != "" and board_data.has(diagonal) and board_data[diagonal].is_occupied_by_player:
-			chosen_cell = diagonal
-			break
+	if _capturing_cell != "":
+		chosen_cell = _capturing_cell
 
 	# 2. no capture available — fall back to regular forward movement
 	if chosen_cell == "":

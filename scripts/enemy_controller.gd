@@ -3,6 +3,7 @@ extends Node3D
 @export var en_pawn_to_deploy: PackedScene
 @export var en_queen_to_deploy: PackedScene
 var _pieces_remaining: int = 0
+var target_cells: Array[String] = []
 
 func _ready() -> void:
 	GameState.state_changed.connect(_handle_state_changed)
@@ -14,12 +15,24 @@ func _handle_state_changed(_old_state: GameState.State, new_state: GameState.Sta
 		_handle_enemy_movement()
 
 func _handle_enemy_movement() -> void:
-	var pieces := get_children()
+	var pieces = get_children()
+	
+	# Queens should be first to get their capturing_cells so that they do not overlap with pawns' targets
+	pieces.sort_custom(func(a, b):
+		return a.piece_type > b.piece_type
+	)
+
 	_pieces_remaining = pieces.size()
 
 	if _pieces_remaining == 0:
 		_on_all_pieces_done()
 		return
+
+	# Loop over queens first and store their capturing cell so that there are no duplicates
+	for piece in pieces:
+		var capturing_cell = piece.get_capturing_cell(target_cells)
+		if capturing_cell != "":
+			target_cells.append(capturing_cell)
 
 	for piece in pieces:
 		piece.handle_move(GameState.board.board_data, _on_piece_move_finished)
@@ -50,6 +63,7 @@ func _on_en_pawn_being_promoted(en_pawn: EnPawn):
 
 
 func _on_all_pieces_done() -> void:
+	target_cells = []
 	GameState.update_turns_left()
 
 func deploy_enemies():

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://wk0d2gdgwitd"]
 
 [ext_resource type="PackedScene" uid="uid://3u2dhlne836m" path="res://assets/pieces/black-queen.glb" id="1_bxlxo"]
-[ext_resource type="Script" uid="uid://xj55ivusenb" path="res://scripts/pieces/black_queen.gd" id="2_63dno"]
+[ext_resource type="Script" uid="uid://d3k7mgk2s51kn" path="res://scripts/pieces/en_queen.gd" id="2_63dno"]
 
 [node name="BlackQueen" unique_id=1966671008 instance=ExtResource("1_bxlxo")]
 script = ExtResource("2_63dno")
