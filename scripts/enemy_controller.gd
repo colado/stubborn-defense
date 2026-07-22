@@ -18,8 +18,15 @@ func _handle_enemy_movement() -> void:
 	var pieces = get_children()
 	
 	# Queens should be first to get their capturing_cells so that they do not overlap with pawns' targets
+	# Then pieces that are in lower cells (a1) should come before those on higher cells (h1) -- NOT WORKING
 	pieces.sort_custom(func(a, b):
-		return a.piece_type > b.piece_type
+		if a.piece_type != b.piece_type:
+			return a.piece_type > b.piece_type
+
+		var a_rank = int(a.current_cell.substr(1))
+		var b_rank = int(b.current_cell.substr(1))
+
+		return a_rank < b_rank
 	)
 
 	_pieces_remaining = pieces.size()
@@ -33,6 +40,9 @@ func _handle_enemy_movement() -> void:
 		var capturing_cell = piece.get_capturing_cell(target_cells)
 		if capturing_cell != "":
 			target_cells.append(capturing_cell)
+		var next_cell = piece.get_next_cell(target_cells)
+		if next_cell != capturing_cell:
+			target_cells.append(next_cell)
 
 	for piece in pieces:
 		piece.handle_move(GameState.board.board_data, _on_piece_move_finished)

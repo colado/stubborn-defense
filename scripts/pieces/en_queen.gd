@@ -58,6 +58,9 @@ func get_capturing_cell(excluded_cells: Array[String]) -> String:
 
 	return capturing_cell
 
+func get_next_cell(_excluded_cells: Array[String]) -> String:
+	return _capturing_cell
+
 func _is_inside_board(pos: Vector2) -> bool:
 	return pos.x >= 0 and pos.x < 8 and pos.y >= 0 and pos.y < 8
 
