@@ -5,7 +5,7 @@ extends Node3D
 @onready var hud = $Hud
 
 @export var pawn_to_deploy: PackedScene
-var active_piece: Area3D
+var active_piece: PlayerPiece
 var allowed_moves: Array[String]
 var bishop_to_promote := preload(("res://scenes/pieces/red_bishop.tscn"))
 var knight_to_promote := preload(("res://scenes/pieces/red_knight.tscn"))
@@ -91,7 +91,7 @@ func _init_player_piece(player_piece: PlayerPiece):
 	board.update_board_data(player_piece.current_cell, player_piece.current_cell, player_piece, true)
 
 func _on_player_piece_finished_move(cell: String):
-	if cell[1] == "8":
+	if active_piece.piece_type == GlobalVars.PieceType.PAWN and cell[1] == "8":
 		GameState.change_state(GameState.State.PROMOTING_PAWN)
 	else:
 		_reset_active_piece()
@@ -138,7 +138,7 @@ func _handle_player_pawn_deploy(coord):
 	_init_player_piece(instance)
 	GameState.edit_points(-1)
 
-func _on_piece_selected(piece: Area3D) -> void:
+func _on_piece_selected(piece: PlayerPiece) -> void:
 	if GameState.current_state == GameState.State.WAITING_FOR_PIECE_SELECTION or GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION: # also adding TILE_SELECTION in case of wrongly selected piece
 		active_piece = piece
 		allowed_moves = get_allowed_moves(piece.piece_type, piece.current_cell, board.board_data)
