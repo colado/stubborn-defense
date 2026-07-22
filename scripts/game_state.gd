@@ -47,5 +47,7 @@ func update_turns_left(minus = -1):
 	turns_left_changed.emit(turns_left)
 
 func reset_moves_and_turns():
-	update_turns_left(INITIAL_TURNS)
-	update_moves_left(INITIAL_MOVES)
+	turns_left = INITIAL_TURNS
+	moves_left = INITIAL_MOVES
+	moves_left_changed.emit(moves_left)
+	turns_left_changed.emit(turns_left)
