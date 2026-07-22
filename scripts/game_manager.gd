@@ -32,9 +32,7 @@ func _on_state_changed(_old_state: GameState.State, new_state: GameState.State):
 func _on_turns_left_changed(turns_left: int):
 	if GameState.current_state != GameState.State.BETWEEN_SETS:
 		if turns_left == 0:
-			GameState.change_set()
-			GameState.change_state(GameState.State.BETWEEN_SETS)
-			GameState.reset_moves_and_turns()
+			_change_set()
 		else:
 			GameState.update_moves_left(1)
 			GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
@@ -42,11 +40,16 @@ func _on_turns_left_changed(turns_left: int):
 func _on_moves_left_changed(moves_left: int):
 	if GameState.current_state != GameState.State.BETWEEN_SETS:
 		if enemy_controller.get_children().size() == 0: # Possibly problematic, as this might return more than 0 if queue_free takes longer than expected, TODO: Create a local variable in enemy_controller that represents number of enemies left
-			GameState.change_state(GameState.State.BETWEEN_SETS)
+			_change_set()
 		elif moves_left == 0:
 			GameState.change_state(GameState.State.ENEMY_TURN)
 		else:
 			GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
+
+func _change_set():
+		GameState.change_state(GameState.State.BETWEEN_SETS)
+		GameState.change_set()
+		GameState.reset_moves_and_turns()
 
 func _on_promotion_selected(piece: GlobalVars.PieceType):
 	var piece_to_promote: PackedScene
