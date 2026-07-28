@@ -42,7 +42,7 @@ func get_capturing_cell(excluded_cells: Array[String]) -> String:
 			if GameState.board.board_data.has(coord):
 				var cell = GameState.board.board_data[coord]
 
-				if cell.is_occupied_by_player and not excluded_cells.has(coord):
+				if cell.is_occupied_by_player and not excluded_cells.has(coord) and not GameState.board.board_data[coord].is_elevated:
 					candidates.append(coord)
 
 				break

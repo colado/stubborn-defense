@@ -16,7 +16,7 @@ func get_capturing_cell(excluded_cells: Array[String]) -> String:
 	# 1. check captures first
 	for dx in [-1, 1]:
 		var diagonal := GameState.board.coords_to_cell(origin + Vector2i(dx, -1))
-		if diagonal != "" and GameState.board.board_data.has(diagonal) and GameState.board.board_data[diagonal].is_occupied_by_player and not excluded_cells.has(diagonal):
+		if diagonal != "" and GameState.board.board_data.has(diagonal) and GameState.board.board_data[diagonal].is_occupied_by_player and not excluded_cells.has(diagonal) and not GameState.board.board_data[diagonal].is_elevated:
 			_next_cell = diagonal
 			break
 	
@@ -35,6 +35,10 @@ func get_next_cell(excluded_cells: Array[String]) -> String:
 			and (
 				not GameState.board.board_data.has(one_step) \
 				or not GameState.board.board_data[one_step].is_occupied_by_player
+			) \
+			and (
+				not GameState.board.board_data.has(one_step) \
+				or not GameState.board.board_data[one_step].is_elevated
 			)
 
 		if not _has_moved and one_step_free:
@@ -44,7 +48,11 @@ func get_next_cell(excluded_cells: Array[String]) -> String:
 				and (
 					not GameState.board.board_data.has(two_step) \
 					or not GameState.board.board_data[two_step].is_occupied_by_player
-				)
+				) \
+			and (
+				not GameState.board.board_data.has(two_step) \
+				or not GameState.board.board_data[two_step].is_elevated
+			)
 
 			if two_step_free:
 				_next_cell = [one_step, two_step][randi() % 2]

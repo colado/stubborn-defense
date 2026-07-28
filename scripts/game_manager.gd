@@ -174,7 +174,9 @@ func _get_knight_moves(current_cell: String, board_data: Dictionary) -> Array[St
 		var cell := GameState.board.coords_to_cell(origin + offset)
 		if cell == "":
 			continue
-		if not board_data.has(cell) or not board_data[cell].is_occupied_by_player:
+		if board.board_data.has(cell) and board.board_data[cell].is_elevated:
+			continue
+		if (not board_data.has(cell) or not board_data[cell].is_occupied_by_player):
 			moves.append(cell)
 	return moves
 
@@ -187,6 +189,8 @@ func _get_king_moves(current_cell: String, board_data: Dictionary) -> Array[Stri
 				continue
 			var cell := GameState.board.coords_to_cell(origin + Vector2i(dx, dy))
 			if cell == "":
+				continue
+			if board.board_data.has(cell) and board_data[cell].is_elevated:
 				continue
 			if not board_data.has(cell) or not board_data[cell].is_occupied_by_player:
 				moves.append(cell)
@@ -202,7 +206,7 @@ func _get_sliding_moves(current_cell: String, board_data: Dictionary, directions
 			if cell == "":
 				break
 			if board_data.has(cell):
-				if not board_data[cell].is_occupied_by_player:
+				if not board_data[cell].is_occupied_by_player and not board_data[cell].is_elevated:
 					moves.append(cell)
 				break
 			moves.append(cell)

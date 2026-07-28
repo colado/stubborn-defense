@@ -17,9 +17,16 @@ func coords_to_cell(coords: Vector2i) -> String:
 		return ""
 	return "%s%d" % [FILES[coords.x], coords.y + 1]
 
-func _ready() -> void:
-	GameState.board = self
-	populate_board_coordinates()
+func elevate_tile(tile: String):
+	var tile_to_elevate = get_node("Area3D_%s" % tile)
+
+	for child in tile_to_elevate.get_children():
+		child.position = Vector3(child.position.x, child.position.y + 0.125, child.position.z)
+	if board_data.has(tile):
+		board_data[tile].is_elevated = true
+	else:
+		board_data[tile] = BoardData.new(null, Vector3.ZERO, false, true)
+
 
 func update_board_data(from: String, to: String, piece: Node3D, is_player: bool):
 	if board_data.has(from):
