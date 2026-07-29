@@ -25,6 +25,12 @@ func _ready() -> void:
 	GameState.moves_left_changed.connect(_on_moves_left_changed)
 	hud.promotion_selected.connect(_on_promotion_selected)
 	board.tiles_turn_over.connect(_on_tiles_turn_over)
+	board.elevating_tile.connect(_on_elevating_tile)
+
+func _on_elevating_tile(coord: String):
+	board.board_data[coord].piece.position.y += 0.125
+	board.board_data[coord].is_elevated = true
+	board.board_data[coord].piece.is_elevated = true
 
 func _on_state_changed(_old_state: GameState.State, new_state: GameState.State):
 	if new_state == GameState.State.DEPLOYING_ENEMIES:
@@ -143,7 +149,9 @@ func _handle_player_pawn_deploy(coord):
 	GameState.edit_points(-1)
 
 func _on_piece_selected(piece: PlayerPiece) -> void:
-	if GameState.current_state == GameState.State.WAITING_FOR_PIECE_SELECTION or GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION: # also adding TILE_SELECTION in case of wrongly selected piece
+	if piece.is_elevated:
+		push_warning("Piece is elevated and cannot move")
+	elif GameState.current_state == GameState.State.WAITING_FOR_PIECE_SELECTION or GameState.current_state == GameState.State.WAITING_FOR_TILE_SELECTION: # also adding TILE_SELECTION in case of wrongly selected piece
 		active_piece = piece
 		allowed_moves = get_allowed_moves(piece.piece_type, piece.current_cell, board.board_data)
 		GameState.change_state(GameState.State.WAITING_FOR_TILE_SELECTION)

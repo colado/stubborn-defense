@@ -11,6 +11,7 @@ enum TileElevationState {
 }
 
 signal tiles_turn_over()
+signal elevating_tile(coord: String)
 
 @onready var template := $Tile_a1/Highlight
 var board_coordinates: Dictionary[String, Vector3] = {}
@@ -46,6 +47,7 @@ func _on_state_change(_old_state: GameState.State, new_state: GameState.State) -
 			for tile in tiles:
 				if GameState.board.board_data.has(tile.coord) and GameState.board.board_data[tile.coord].piece != null:
 					tile.elevate()
+					elevating_tile.emit(tile.coord)
 				else: 
 					tile.highlight_tile(false)
 			current_tile_elevation_state = TileElevationState.Elevated

@@ -42,6 +42,7 @@ func update_mesh():
 		mesh_instance.mesh = black_mesh
 
 func elevate():
+	highlight.visible = false
 	for child in get_children():
 		child.position.y += 0.125
 	if GameState.board.board_data.has(coord):

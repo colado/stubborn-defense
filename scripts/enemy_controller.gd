@@ -15,7 +15,7 @@ func _handle_state_changed(_old_state: GameState.State, new_state: GameState.Sta
 		_handle_enemy_movement()
 
 func _handle_enemy_movement() -> void:
-	var pieces = get_children()
+	var pieces = get_children().filter(func(child): return !child.is_elevated)
 	
 	# Queens should be first to get their capturing_cells so that they do not overlap with pawns' targets
 	# Then pieces that are in lower cells (a1) should come before those on higher cells (h1) -- NOT WORKING

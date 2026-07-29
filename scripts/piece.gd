@@ -4,6 +4,7 @@ class_name Piece
 var current_cell: String
 var piece_type: int
 var move_tween: Tween
+var is_elevated := false
 
 func _ready() -> void:
 	current_cell = GameState.board.get_nearest_tile(position)
