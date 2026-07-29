@@ -11,6 +11,12 @@ enum PieceType {
     EN_QUEEN = 9
 }
 
+enum TileElevationType {
+	Upgrade,
+	Downgrade,
+	Reveal
+}
+
 const PAWN_HEIGHT = 0.227
 const EN_PAWN_HEIGHT = 0.198
 const BISHOP_HEIGHT = 0.277

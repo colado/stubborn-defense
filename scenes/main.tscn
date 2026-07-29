@@ -45,9 +45,6 @@ shadow_enabled = true
 
 [node name="Board" parent="." unique_id=499651688 instance=ExtResource("3_jyhfs")]
 
-[node name="Tile_a1" parent="Board" index="1" unique_id=111848646]
-tile_color = 0
-
 [node name="RedKing" parent="." unique_id=1647727869 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13724422, 0.2715315, 0.8778675)
 
@@ -57,5 +54,3 @@ en_pawn_to_deploy = ExtResource("10_choun")
 en_queen_to_deploy = ExtResource("8_85g3d")
 
 [node name="Hud" parent="." unique_id=1474713042 instance=ExtResource("9_85g3d")]
-
-[editable path="Board"]

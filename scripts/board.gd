@@ -3,9 +3,106 @@ extends Node3D
 
 const FILES := ["a", "b", "c", "d", "e", "f", "g", "h"]
 
+enum TileElevationState {
+	Off,
+	Highlighted,
+	Revealed,
+	Elevated
+}
+
+signal tiles_turn_over()
+
+@onready var template := $Tile_a1/Highlight
 var board_coordinates: Dictionary[String, Vector3] = {}
 var board_positions_to_coordinates: Dictionary[Vector3, String] = {}
 var board_data: Dictionary[String, BoardData] = {}
+var current_tile_elevation_state := TileElevationState.Off
+var tiles: Array = []
+
+@export var generate := false:
+	set(value):
+		if value:
+			generate = false
+			generate_highlights()
+
+func _ready() -> void:
+	GameState.board = self
+	populate_board_coordinates()
+	_assign_tile_elevation_types()
+	GameState.state_changed.connect(_on_state_change)
+
+func _on_state_change(_old_state: GameState.State, new_state: GameState.State) -> void:
+	if (new_state == GameState.State.TILES_TURN):
+		if current_tile_elevation_state == TileElevationState.Off or current_tile_elevation_state == TileElevationState.Elevated:
+			tiles = get_random_tiles()
+			for tile in tiles:
+				tile.highlight_tile()
+			current_tile_elevation_state = TileElevationState.Highlighted
+		elif current_tile_elevation_state == TileElevationState.Highlighted:
+			for tile in tiles:
+				tile.reveal_highlight_type()
+			current_tile_elevation_state = TileElevationState.Revealed
+		elif current_tile_elevation_state == TileElevationState.Revealed:
+			for tile in tiles:
+				if GameState.board.board_data.has(tile.coord) and GameState.board.board_data[tile.coord].piece != null:
+					tile.elevate()
+				else: 
+					tile.highlight_tile(false)
+			current_tile_elevation_state = TileElevationState.Elevated
+
+		tiles_turn_over.emit()
+
+
+func get_random_tiles(count := 3) -> Array:
+	var _tiles: Array = []
+	for child in get_children():
+		if child.name.begins_with("Tile"):
+			_tiles.append(child)
+
+	if _tiles.size() < count:
+		push_warning("Only %d tiles available, requested %d" % [_tiles.size(), count])
+		count = _tiles.size()
+
+	_tiles.shuffle()
+	return _tiles.slice(0, count)
+
+
+func _assign_tile_elevation_types() -> void:
+	var _tiles: Array = []
+	for child in get_children():
+		if child.name.begins_with("Tile"):
+			_tiles.append(child)
+
+	var values: Array[GlobalVars.TileElevationType] = []
+	for i in range(8):
+		values.append(GlobalVars.TileElevationType.Reveal)
+	for i in range(28):
+		values.append(GlobalVars.TileElevationType.Upgrade)
+	for i in range(28):
+		values.append(GlobalVars.TileElevationType.Downgrade)
+
+	if _tiles.size() != values.size():
+		push_warning("Tile count (%d) does not match value pool size (%d)" % [_tiles.size(), values.size()])
+
+	values.shuffle()
+
+	var count = min(_tiles.size(), values.size())
+	for i in range(count):
+		print(values[i])
+		_tiles[i].set("elevation_type", values[i])
+
+func generate_highlights():
+	for child in get_children():
+		if !child.name.begins_with("Tile_"):
+			continue
+
+		if child.has_node("Highlight"):
+			child.get_node("Highlight").visible = false
+			continue
+
+		var highlight = template.duplicate()
+		highlight.visible = false
+		child.add_child(highlight)
 
 func cell_to_coords(cell: String) -> Vector2i:
 	var file := cell.substr(0, 1)
@@ -16,17 +113,6 @@ func coords_to_cell(coords: Vector2i) -> String:
 	if coords.x < 0 or coords.x > 7 or coords.y < 0 or coords.y > 7:
 		return ""
 	return "%s%d" % [FILES[coords.x], coords.y + 1]
-
-func elevate_tile(tile: String):
-	var tile_to_elevate = get_node("Area3D_%s" % tile)
-
-	for child in tile_to_elevate.get_children():
-		child.position = Vector3(child.position.x, child.position.y + 0.125, child.position.z)
-	if board_data.has(tile):
-		board_data[tile].is_elevated = true
-	else:
-		board_data[tile] = BoardData.new(null, Vector3.ZERO, false, true)
-
 
 func update_board_data(from: String, to: String, piece: Node3D, is_player: bool):
 	if board_data.has(from):

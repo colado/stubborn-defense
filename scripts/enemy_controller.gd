@@ -86,7 +86,7 @@ func deploy_enemies():
 		instance.position = selected_cell_coordinates
 		add_child(instance)
 		_init_enemy_piece(instance)
-	GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
+	GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION) # not ideal, should be a signal
 
 func _get_random_deployment_cells() -> Array[String]:
 	# TODO: Handle less cells to deploy than cells available in specified cells

@@ -24,10 +24,14 @@ func _ready() -> void:
 	GameState.turns_left_changed.connect(_on_turns_left_changed)
 	GameState.moves_left_changed.connect(_on_moves_left_changed)
 	hud.promotion_selected.connect(_on_promotion_selected)
+	board.tiles_turn_over.connect(_on_tiles_turn_over)
 
 func _on_state_changed(_old_state: GameState.State, new_state: GameState.State):
 	if new_state == GameState.State.DEPLOYING_ENEMIES:
 		enemy_controller.deploy_enemies()
+
+func _on_tiles_turn_over():
+	GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
 
 func _on_turns_left_changed(turns_left: int):
 	if GameState.current_state != GameState.State.BETWEEN_SETS:
@@ -35,7 +39,7 @@ func _on_turns_left_changed(turns_left: int):
 			_change_set()
 		else:
 			GameState.update_moves_left(1)
-			GameState.change_state(GameState.State.WAITING_FOR_PIECE_SELECTION)
+			GameState.change_state(GameState.State.TILES_TURN)
 
 func _on_moves_left_changed(moves_left: int):
 	if GameState.current_state != GameState.State.BETWEEN_SETS:
