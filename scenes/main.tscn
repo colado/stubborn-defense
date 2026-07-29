@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bacocya722so8" path="res://scenes/pieces/red_king.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cy7fb1ot1i6hg" path="res://scenes/board.tscn" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ba8751y4e1mof" path="res://scenes/pieces/red_pawn.tscn" id="3_sugp2"]
-[ext_resource type="Script" uid="uid://dnb2vtn2f3emo" path="res://scripts/board.gd" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://wk0d2gdgwitd" path="res://scenes/pieces/black_queen.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cqfxjorprq6v4" path="res://scenes/hud.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://btth6yaf8uip5" path="res://scenes/pieces/black_pawn.tscn" id="10_choun"]
@@ -45,7 +44,9 @@ transform = Transform3D(0.7071068, 0.61237246, -0.35355335, 0, 0.49999997, 0.866
 shadow_enabled = true
 
 [node name="Board" parent="." unique_id=499651688 instance=ExtResource("3_jyhfs")]
-script = ExtResource("3_tbgi4")
+
+[node name="Tile_a1" parent="Board" index="1" unique_id=111848646]
+tile_color = 0
 
 [node name="RedKing" parent="." unique_id=1647727869 instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13724422, 0.2715315, 0.8778675)
@@ -56,3 +57,5 @@ en_pawn_to_deploy = ExtResource("10_choun")
 en_queen_to_deploy = ExtResource("8_85g3d")
 
 [node name="Hud" parent="." unique_id=1474713042 instance=ExtResource("9_85g3d")]
+
+[editable path="Board"]

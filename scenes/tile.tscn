@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bc4uyxw74oru3"]
+
+[ext_resource type="Script" uid="uid://cgu00gtuhv5x1" path="res://scripts/tile.gd" id="1_3dk36"]
+[ext_resource type="ArrayMesh" uid="uid://catd02igkt1vg" path="res://assets/black_cube.tres" id="2_ywnoi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n1au0"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx6nw"]
+transparency = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nglv8"]
+material = SubResource("StandardMaterial3D_tx6nw")
+size = Vector2(0.25, 0.25)
+
+[node name="Tile" type="Area3D" unique_id=111848646]
+monitoring = false
+monitorable = false
+script = ExtResource("1_3dk36")
+coord = "a1"
+
+[node name="Cube" type="MeshInstance3D" parent="." unique_id=339425684]
+mesh = ExtResource("2_ywnoi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2120558148]
+shape = SubResource("BoxShape3D_n1au0")
+
+[node name="Highlight" type="MeshInstance3D" parent="." unique_id=1757059126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00074505806, 0.1262629, -0.0009342432)
+visible = false
+mesh = SubResource("PlaneMesh_nglv8")
