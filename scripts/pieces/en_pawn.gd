@@ -60,6 +60,8 @@ func get_next_cell(excluded_cells: Array[String]) -> String:
 				_next_cell = one_step
 		elif one_step_free:
 			_next_cell = one_step
+		else:
+			_next_cell = current_cell
 	
 	return _next_cell
 
